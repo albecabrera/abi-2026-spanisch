@@ -548,6 +548,151 @@
       margin-bottom: 1rem;
     }
 
+    /* ── WISSENSBLOCK ────────────────────────────────────────────────────── */
+    .wissensblock {
+      margin-top: 1.25rem;
+      border: 1px solid rgba(33,150,243,.25);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .wb-head {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      padding: .8rem 1.1rem;
+      background: rgba(33,150,243,.07);
+      border-bottom: 1px solid rgba(33,150,243,.15);
+      cursor: pointer;
+      user-select: none;
+    }
+    .wb-head-title {
+      flex: 1;
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--c5);
+    }
+    .wb-chev {
+      color: var(--c5);
+      transition: transform .3s;
+    }
+    .wb-head.open .wb-chev { transform: rotate(180deg); }
+    .wb-body {
+      display: none;
+      padding: 1.25rem;
+      background: rgba(33,150,243,.03);
+    }
+    .wb-body.open { display: block; }
+    .wb-sec { margin-bottom: 1.25rem; }
+    .wb-sec:last-child { margin-bottom: 0; }
+    .wb-sec-title {
+      font-size: .65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      color: var(--txt3);
+      margin-bottom: .7rem;
+    }
+    /* stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: .5rem;
+    }
+    .scard {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: .7rem .75rem;
+      text-align: center;
+    }
+    .scard-val {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--c5);
+      line-height: 1.15;
+    }
+    .scard-lbl {
+      font-size: .66rem;
+      color: var(--txt3);
+      line-height: 1.35;
+      margin-top: .15rem;
+    }
+    /* timeline */
+    .tl { display: flex; flex-direction: column; gap: .5rem; }
+    .tl-row { display: flex; gap: .7rem; align-items: flex-start; }
+    .tl-yr {
+      flex-shrink: 0;
+      min-width: 42px;
+      font-size: .72rem;
+      font-weight: 800;
+      color: var(--c5);
+      font-variant-numeric: tabular-nums;
+      padding-top: .12em;
+    }
+    .tl-txt {
+      font-size: .8rem;
+      color: var(--txt2);
+      line-height: 1.5;
+      border-left: 2px solid var(--border);
+      padding-left: .65rem;
+      flex: 1;
+    }
+    .tl-txt strong { color: var(--txt); }
+    /* pro contra */
+    .pc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .65rem;
+    }
+    @media (max-width: 560px) { .pc-grid { grid-template-columns: 1fr; } }
+    .pc-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .pc-hd {
+      padding: .45rem .8rem;
+      font-size: .68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      border-bottom: 1px solid var(--border);
+    }
+    .pc-hd.pro { background: rgba(67,160,71,.1); color: #43a047; }
+    .pc-hd.con { background: rgba(239,83,80,.08); color: #ef5350; }
+    .pc-ul { list-style: none; padding: .65rem .8rem; display: flex; flex-direction: column; gap: .4rem; }
+    .pc-ul li { font-size: .79rem; color: var(--txt2); display: flex; gap: .45rem; line-height: 1.45; }
+    .pc-ul.pro li::before { content: '✓'; color: #43a047; font-weight: 700; flex-shrink: 0; }
+    .pc-ul.con li::before { content: '✗'; color: #ef5350; font-weight: 700; flex-shrink: 0; }
+    /* NRW box */
+    .nrw-box {
+      background: rgba(212,160,23,.07);
+      border: 1px solid rgba(212,160,23,.22);
+      border-radius: 8px;
+      padding: .875rem 1rem;
+    }
+    .nrw-rows { display: flex; flex-direction: column; gap: .45rem; margin-top: .5rem; }
+    .nrw-row {
+      display: flex;
+      gap: .6rem;
+      font-size: .8rem;
+      color: var(--txt2);
+      line-height: 1.5;
+      align-items: flex-start;
+    }
+    .nrw-tag {
+      flex-shrink: 0;
+      font-size: .65rem;
+      font-weight: 700;
+      background: var(--gold-bg);
+      border: 1px solid var(--gold-bdr);
+      color: var(--gold);
+      border-radius: 4px;
+      padding: .1em .45em;
+      margin-top: .18em;
+      white-space: nowrap;
+    }
     /* ── FOOTER ─────────────────────────────────────────────────────────── */
     footer {
       text-align: center;
@@ -891,6 +1036,116 @@
           <span class="kwtag">Cataluña / España</span>
         </div>
 
+        <!-- ══ WISSENSBLOCK ════════════════════════════════════════════════ -->
+        <div class="wissensblock">
+          <div class="wb-head" onclick="toggleWB(this)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            <span class="wb-head-title">Hintergrundwissen — Cataluña kompakt (NRW-Prüfungsvorgaben)</span>
+            <svg class="wb-chev" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="wb-body">
+
+            <!-- 1. BASISDATEN -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">📊 Datos básicos — Katalonien in Zahlen</div>
+              <div class="stats-grid">
+                <div class="scard"><div class="scard-val">7,5 Mio.</div><div class="scard-lbl">Einwohner</div></div>
+                <div class="scard"><div class="scard-val">32.000 km²</div><div class="scard-lbl">Fläche</div></div>
+                <div class="scard"><div class="scard-val">~20 %</div><div class="scard-lbl">des span. BIP</div></div>
+                <div class="scard"><div class="scard-val">270 Mrd. €</div><div class="scard-lbl">BIP (2022)</div></div>
+                <div class="scard"><div class="scard-val">25 %</div><div class="scard-lbl">span. Exporte</div></div>
+                <div class="scard"><div class="scard-val">5 Mio.</div><div class="scard-lbl">Großraum Barcelona</div></div>
+                <div class="scard"><div class="scard-val">16 %</div><div class="scard-lbl">der span. Bevölkerung</div></div>
+                <div class="scard"><div class="scard-val">6,3 %</div><div class="scard-lbl">des span. Territoriums</div></div>
+              </div>
+            </div>
+
+            <!-- 2. SPRACHE -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">🗣 El catalán — Sprachpolitik</div>
+              <div class="tl">
+                <div class="tl-row"><div class="tl-yr">Ursprung</div><div class="tl-txt">Entwickelt sich ab dem <strong>9. Jahrhundert</strong> aus dem Latein → romanische Sprache</div></div>
+                <div class="tl-row"><div class="tl-yr">Sprecher</div><div class="tl-txt"><strong>~10 Mio.</strong> aktive Sprecher, ~12 Mio. verstehen es → <strong>9. meistgesprochene</strong> Sprache der EU</div></div>
+                <div class="tl-row"><div class="tl-yr">Verbreitung</div><div class="tl-txt">Katalonien, Valencia (<em>valenciano</em>), Balearen, Andorra, Teile Frankreichs & Sardiniens</div></div>
+                <div class="tl-row"><div class="tl-yr">Barcelona</div><div class="tl-txt"><strong>~75 %</strong> der Barcelonenser haben Kastilisch als Erstsprache → Katalanisch ist Minderheitssprache in der eigenen Hauptstadt</div></div>
+                <div class="tl-row"><div class="tl-yr">Inmersión</div><div class="tl-txt"><strong>Katalanisch = Hauptunterrichtssprache</strong> in Schulen seit 1983 (<em>Ley de Política Lingüística</em>) → Kastilisch hat sekundäre Rolle</div></div>
+                <div class="tl-row"><div class="tl-yr">Franco</div><div class="tl-txt">1939–1975: <strong>Katalanisch verboten</strong> aus öffentlichem Leben → traumatische Unterdrückung → bis heute emotionales Thema</div></div>
+                <div class="tl-row"><div class="tl-yr">Heute</div><div class="tl-txt">Beide Sprachen offiziell. Debatte: <em>inmersión lingüística</em> (Katalanisch schützen) vs. <em>escuela bilingüe</em> (Gleichberechtigung beider Sprachen)</div></div>
+              </div>
+            </div>
+
+            <!-- 3. CHRONOLOGIE -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">📅 Historische Chronologie — Prüfungsrelevant</div>
+              <div class="tl">
+                <div class="tl-row"><div class="tl-yr">1714</div><div class="tl-txt"><strong>Verlust der Autonomie</strong> nach dem Spanischen Erbfolgekrieg — Kapitulation Barcelonas am 11. September → wird zur Diada</div></div>
+                <div class="tl-row"><div class="tl-yr">1939</div><div class="tl-txt">Francos Diktatur beginnt: <strong>Katalanisch verboten</strong>, Autonomie abgeschafft, kulturelle Repression</div></div>
+                <div class="tl-row"><div class="tl-yr">1975</div><div class="tl-txt">Tod Francos → <strong>Demokratisierung</strong>, kulturelle Renaissancebewegung Kataloniens (<em>la renaixença</em>)</div></div>
+                <div class="tl-row"><div class="tl-yr">1978</div><div class="tl-txt"><strong>Spanische Verfassung</strong> → erkennt regionale Autonomien an, aber keine Sezession</div></div>
+                <div class="tl-row"><div class="tl-yr">1979</div><div class="tl-txt"><strong>Estatut d'Autonomia</strong> — Autonomiestatut per Referendum bestätigt → eigenes Parlament, Regierung (<em>Generalitat</em>)</div></div>
+                <div class="tl-row"><div class="tl-yr">2006</div><div class="tl-txt">Neues Autonomiestatut verabschiedet — bezeichnet Katalonien als <strong>„Nación"</strong></div></div>
+                <div class="tl-row"><div class="tl-yr">2010</div><div class="tl-txt"><strong>Verfassungsgerichtsurteil</strong> kippt „Nación"-Bezeichnung und 14 weitere Artikel → Wendepunkt, massive Proteste</div></div>
+                <div class="tl-row"><div class="tl-yr">2012</div><div class="tl-txt">Erste <strong>Massendemonstration</strong> am 11. September (<em>Diada</em>) für Unabhängigkeit — 1,5 Mio. Menschen in Barcelona</div></div>
+                <div class="tl-row"><div class="tl-yr">2013</div><div class="tl-txt"><strong>Menschenkette (<em>Via Catalana</em>)</strong> — 400 km von Nordkatalonien bis Valencia, ~1,6 Mio. Teilnehmer</div></div>
+                <div class="tl-row"><div class="tl-yr">2014</div><div class="tl-txt">Inoffizielle Volksbefragung (<em>consulta popular</em>) — 80 % für Unabhängigkeit, Madrid erkennt sie nicht an</div></div>
+                <div class="tl-row"><div class="tl-yr">2016</div><div class="tl-txt"><strong>Carles Puigdemont</strong> wird Regionalpräsident — klarer Unabhängigkeitsbefürworter</div></div>
+                <div class="tl-row"><div class="tl-yr">1. Okt. 2017</div><div class="tl-txt"><strong>Referéndum ilegal</strong> — 90 % für Unabhängigkeit (bei 43 % Wahlbeteiligung). Polizeieinsatz gegen Wähler. Massive internationale Kritik</div></div>
+                <div class="tl-row"><div class="tl-yr">27. Okt. 2017</div><div class="tl-txt">Katalanisches Parlament erklärt <strong>einseitige Unabhängigkeit</strong> → Madrid aktiviert <strong>Artikel 155</strong> der Verfassung, setzt Autonomie aus</div></div>
+                <div class="tl-row"><div class="tl-yr">Nov. 2017</div><div class="tl-txt">Puigdemont flieht nach <strong>Belgien</strong> → europäischer Haftbefehl → jahrelanger Rechtsstreit</div></div>
+                <div class="tl-row"><div class="tl-yr">2018</div><div class="tl-txt"><strong>Pedro Sánchez (PSOE)</strong> löst Rajoy ab → Dialog-Ansatz, Entspannung</div></div>
+                <div class="tl-row"><div class="tl-yr">2019</div><div class="tl-txt">Verurteilung von 9 Unabhängigkeitsführern (<em>presos políticos</em>) zu bis zu 13 Jahren — Proteste, Flughafenblockaden</div></div>
+                <div class="tl-row"><div class="tl-yr">2021</div><div class="tl-txt">Spanische Regierung begnadigt die verurteilten Politiker (<em>indultos</em>)</div></div>
+                <div class="tl-row"><div class="tl-yr">heute</div><div class="tl-txt">Konflikt ungelöst. Dialog läuft, aber Unabhängigkeitsforderung bleibt. Gesellschaft zu ~50 % gespalten</div></div>
+              </div>
+            </div>
+
+            <!-- 4. PRO / CONTRA -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">⚖️ Argumente pro / contra independencia — für die Opinión</div>
+              <div class="pc-grid">
+                <div class="pc-box">
+                  <div class="pc-hd pro">✓ A favor — Für Unabhängigkeit</div>
+                  <ul class="pc-ul pro">
+                    <li>Wirtschaftsstark: 20 % des span. BIP, zahlt mehr ein als es zurückbekommt (<em>déficit fiscal</em>)</li>
+                    <li>Eigene Sprache und Kultur → Recht auf Selbstbestimmung (<em>autodeterminación</em>)</li>
+                    <li>Jahrhundertelange Unterdrückung (1714, Franco) → historische Gerechtigkeit</li>
+                    <li>Als kleiner Staat: effizienter und schneller regierbar (<em>"pequeña pero muy fuerte"</em>)</li>
+                    <li>Demokratisches Recht: Volksabstimmung sollte erlaubt sein</li>
+                  </ul>
+                </div>
+                <div class="pc-box">
+                  <div class="pc-hd con">✗ En contra — Gegen Unabhängigkeit</div>
+                  <ul class="pc-ul con">
+                    <li>EU-Mitgliedschaft nicht automatisch → müsste neu beitreten, Wirtschaftsrisiko</li>
+                    <li>Wirtschaftliche Verluste bis −25 % des BIP durch Handelsstörungen</li>
+                    <li>Gesellschaft tief gespalten: ca. 50 % contra → kein eindeutiger Volkswille</li>
+                    <li>Spanische Verfassung erlaubt keine Sezession → verfassungswidrig</li>
+                    <li>Würde andere Regionen (Baskenland, Galicien) zu ähnlichen Forderungen ermutigen</li>
+                    <li>Katalanisch ist Minderheitssprache in Barcelona → nicht alle Katalanen = Katalanisten</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5. NRW ANFORDERUNGEN -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">🎓 NRW-Prüfungsvorgaben — Mündliche Abiturprüfung Spanisch</div>
+              <div class="nrw-box">
+                <div class="nrw-rows">
+                  <div class="nrw-row"><span class="nrw-tag">Teil 1</span><span>Zusammenhängendes Sprechen — <strong>Monolog</strong>: ca. 15 Min. freier Vortrag mit Handout. Prüfungsmaterial (Text, Bild, Grafik) wird präsentiert und kommentiert.</span></div>
+                  <div class="nrw-row"><span class="nrw-tag">Teil 2</span><span>An Gesprächen teilnehmen — <strong>Dialog</strong> mit Prüfer·in: Rückfragen, Meinungsaustausch, Vertiefung des Themas (~10 Min.).</span></div>
+                  <div class="nrw-row"><span class="nrw-tag">Inhalt</span><span>Inhaltliche Kompetenz: Thema sachlich korrekt darstellen, <strong>Fakten + Kontext + eigene Meinung</strong> (<em>opinión</em>) verbinden.</span></div>
+                  <div class="nrw-row"><span class="nrw-tag">Sprache</span><span>Sprachliche Mittel: Wortschatz, Grammatik, Aussprache. <strong>Nicht ablesen</strong> — freier Vortrag ist Pflicht (Karteikarten erlaubt).</span></div>
+                  <div class="nrw-row"><span class="nrw-tag">Interk.</span><span>Interkulturelle Kompetenz: Perspektivwechsel zeigen, verschiedene Positionen kennen und einordnen können.</span></div>
+                  <div class="nrw-row"><span class="nrw-tag">Diskurs</span><span>Diskurskompetenz: strukturierter Aufbau (Einleitung → Hauptteil → Schluss/Opinión), Übergänge, Kohärenz.</span></div>
+                  <div class="nrw-row"><span class="nrw-tag">Handout</span><span>Stichpunktartig, <strong>mit Verben</strong> (keine reinen Substantivlisten), als PowerPoint oder Worddokument abgeben.</span></div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /wb-body -->
+        </div><!-- /wissensblock -->
+
         <div class="opinion">
           <div class="op-label">⟶ Opinión</div>
           <p>Meinungsäußerung zu einem allgemeinen oder spezifischen Aspekt des Themas — z. B. zum Recht auf Unabhängigkeit oder zur Sprachpolitik.</p>
@@ -1027,6 +1282,12 @@
     const btn = document.getElementById('timer-start');
     btn.textContent = 'Start';
     btn.className   = 'btn start';
+  }
+
+  /* ── WISSENSBLOCK TOGGLE ─────────────────────────────────────────────── */
+  function toggleWB(hd) {
+    hd.classList.toggle('open');
+    hd.nextElementSibling.classList.toggle('open');
   }
 
   /* ── INIT ────────────────────────────────────────────────────────────── */
