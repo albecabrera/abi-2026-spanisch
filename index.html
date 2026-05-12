@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Español Abitur 2026 · Themenübersicht</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── TOKENS ─────────────────────────────────────────────────────────── */
+    :root {
+      --bg:        #0c0f14;
+      --surface:   #141922;
+      --surface2:  #1b2130;
+      --border:    #252d3d;
+      --border2:   #2e3a4e;
+      --txt:       #dce8f5;
+      --txt2:      #7f93ae;
+      --txt3:      #46566a;
+      --gold:      #d4a017;
+      --gold-bg:   rgba(212,160,23,.12);
+      --gold-bdr:  rgba(212,160,23,.28);
+
+      /* topic accents */
+      --c1: #ef5350;   /* red    – immigración  */
+      --c2: #fb8c00;   /* orange – pobreza      */
+      --c3: #43a047;   /* green  – turismo      */
+      --c4: #8e57e0;   /* violet – mapuche      */
+      --c5: #2196f3;   /* blue   – barcelona    */
+
+      --radius: 12px;
+      --shadow: 0 2px 16px rgba(0,0,0,.45);
+    }
+
+    /* ── RESET ──────────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--txt);
+      min-height: 100vh;
+      line-height: 1.65;
+    }
+
+    /* ── HERO ───────────────────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(160deg, #0c0f14 0%, #111827 55%, #0c0f14 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 1.5rem 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 60%, rgba(239,83,80,.07) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 50% at 80% 40%, rgba(33,150,243,.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      background: var(--gold-bg);
+      border: 1px solid var(--gold-bdr);
+      color: var(--gold);
+      padding: .3rem 1rem;
+      border-radius: 2rem;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 1.1rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 5.5vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      background: linear-gradient(135deg, #dce8f5 20%, #7f93ae 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: .55rem;
+    }
+    .hero-sub {
+      color: var(--txt2);
+      font-size: .95rem;
+      max-width: 480px;
+      margin: 0 auto 2rem;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem 2.5rem;
+    }
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .2rem;
+    }
+    .stat-val {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--txt);
+      letter-spacing: -.02em;
+    }
+    .stat-lbl {
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--txt3);
+    }
+
+    /* ── FORMAT BAR ─────────────────────────────────────────────────────── */
+    .format-bar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: .75rem 1.5rem;
+    }
+    .format-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      flex-wrap: wrap;
+    }
+    .format-label {
+      font-size: .68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--txt3);
+      white-space: nowrap;
+      margin-right: .25rem;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      border-radius: 2rem;
+      padding: .2rem .7rem;
+      font-size: .75rem;
+      color: var(--txt2);
+    }
+    .pill.gold {
+      background: var(--gold-bg);
+      border-color: var(--gold-bdr);
+      color: var(--gold);
+    }
+    .pill svg { flex-shrink: 0; }
+
+    /* ── PROGRESS ───────────────────────────────────────────────────────── */
+    .wrapper { max-width: 980px; margin: 0 auto; padding: 0 1.5rem; }
+    .progress-wrap { padding: 1.75rem 1.5rem 0; }
+    .progress-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: .5rem;
+    }
+    .progress-head span { font-size: .78rem; color: var(--txt2); }
+    .progress-head strong { font-size: .78rem; color: var(--txt); }
+    .pbar-bg {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      height: 6px;
+      overflow: hidden;
+    }
+    .pbar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--c3) 0%, var(--c5) 100%);
+      border-radius: 4px;
+      transition: width .5s cubic-bezier(.4,0,.2,1);
+      width: 0%;
+    }
+
+    /* ── TIMER ──────────────────────────────────────────────────────────── */
+    .timer-wrap { padding: 1.25rem 1.5rem 0; }
+    .timer-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .timer-info { flex: 1; min-width: 120px; }
+    .timer-label {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--txt3);
+      margin-bottom: .15rem;
+    }
+    .timer-display {
+      font-size: 2.25rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -.03em;
+      color: var(--txt);
+      transition: color .3s;
+    }
+    .timer-display.warn  { color: var(--c2); }
+    .timer-display.alert { color: var(--c1); }
+    .timer-note { font-size: .72rem; color: var(--txt3); margin-top: .1rem; }
+    .timer-btns { display: flex; gap: .5rem; }
+    .btn {
+      padding: .5rem 1.1rem;
+      border-radius: 7px;
+      border: 1px solid var(--border2);
+      background: rgba(255,255,255,.05);
+      color: var(--txt);
+      font-size: .8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit;
+      line-height: 1;
+    }
+    .btn:hover { background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.15); }
+    .btn.start { background: rgba(67,160,71,.15); border-color: rgba(67,160,71,.35); color: var(--c3); }
+    .btn.start:hover { background: rgba(67,160,71,.25); }
+    .btn.reset { background: rgba(239,83,80,.08); border-color: rgba(239,83,80,.25); color: var(--c1); }
+    .btn.reset:hover { background: rgba(239,83,80,.18); }
+
+    /* ── MAIN ───────────────────────────────────────────────────────────── */
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 1.75rem 1.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    /* ── TOPIC CARD ─────────────────────────────────────────────────────── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color .2s, box-shadow .2s;
+      box-shadow: var(--shadow);
+    }
+    .card:hover { border-color: var(--border2); }
+    .card[data-n="1"] { --ac: var(--c1); }
+    .card[data-n="2"] { --ac: var(--c2); }
+    .card[data-n="3"] { --ac: var(--c3); }
+    .card[data-n="4"] { --ac: var(--c4); }
+    .card[data-n="5"] { --ac: var(--c5); }
+    .card.open {
+      border-color: var(--ac);
+      box-shadow: 0 0 0 1px var(--ac), 0 8px 36px rgba(0,0,0,.55);
+    }
+
+    /* header row */
+    .ch {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem 1.4rem;
+      cursor: pointer;
+      transition: background .15s;
+      user-select: none;
+    }
+    .ch:hover { background: rgba(255,255,255,.025); }
+
+    .badge {
+      flex-shrink: 0;
+      width: 2.6rem;
+      height: 2.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid var(--ac);
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--ac);
+      background: rgba(255,255,255,.03);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .ch-text { flex: 1; min-width: 0; }
+    .ch-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--txt);
+      line-height: 1.3;
+    }
+    .ch-sub {
+      display: inline-block;
+      font-size: .7rem;
+      color: var(--txt3);
+      background: rgba(255,255,255,.05);
+      border-radius: 2rem;
+      padding: .1rem .55rem;
+      margin-top: .25rem;
+    }
+
+    .ch-right {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      flex-shrink: 0;
+    }
+
+    /* checkbox */
+    .cklbl {
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      cursor: pointer;
+      font-size: .75rem;
+      color: var(--txt3);
+      white-space: nowrap;
+      transition: color .15s;
+    }
+    .cklbl:hover { color: var(--txt2); }
+    .cklbl input {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 16px; height: 16px;
+      border: 1.5px solid var(--border2);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all .15s;
+      position: relative;
+    }
+    .cklbl input:checked {
+      background: var(--ac);
+      border-color: var(--ac);
+    }
+    .cklbl input:checked::after {
+      content: '';
+      display: block;
+      width: 5px; height: 9px;
+      border: 2px solid #fff;
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg) translate(1px, -1px);
+      position: absolute;
+      top: 1px; left: 4px;
+    }
+
+    /* chevron */
+    .chevron {
+      width: 26px; height: 26px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: rgba(255,255,255,.04);
+      color: var(--txt3);
+      transition: transform .35s cubic-bezier(.4,0,.2,1), background .15s;
+    }
+    .card.open .chevron { transform: rotate(180deg); background: rgba(255,255,255,.08); }
+
+    /* body */
+    .cb {
+      border-top: 1px solid var(--border);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .45s cubic-bezier(.4,0,.2,1);
+    }
+    .card.open .cb { max-height: 2400px; }
+
+    .cb-inner {
+      padding: 1.4rem 1.5rem 1.5rem;
+      border-left: 3px solid var(--ac);
+      margin-left: 0;
+    }
+
+    /* section titles inside card */
+    .section-title {
+      font-size: .65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      color: var(--txt3);
+      margin-bottom: .7rem;
+    }
+
+    /* subtopic list */
+    .subs {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      margin-bottom: 1.2rem;
+    }
+    .subs li {
+      display: flex;
+      gap: .7rem;
+      align-items: flex-start;
+      font-size: .875rem;
+      color: var(--txt2);
+      line-height: 1.55;
+    }
+    .subs li::before {
+      content: '→';
+      color: var(--ac);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: .05em;
+    }
+    .subs li strong { color: var(--txt); }
+    .kw {
+      display: inline;
+      background: rgba(255,255,255,.06);
+      border-radius: 3px;
+      padding: .05em .35em;
+      font-size: .83em;
+      color: var(--ac);
+      font-weight: 500;
+    }
+
+    /* keywords row */
+    .keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+      margin-bottom: 1.2rem;
+    }
+    .kwtag {
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--border2);
+      border-radius: 2rem;
+      padding: .2rem .7rem;
+      font-size: .72rem;
+      color: var(--txt2);
+      transition: background .15s, color .15s;
+    }
+    .kwtag:hover {
+      background: rgba(255,255,255,.09);
+      color: var(--txt);
+    }
+
+    /* opinion box */
+    .opinion {
+      background: rgba(255,255,255,.025);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: .9rem 1.1rem;
+    }
+    .opinion .op-label {
+      font-size: .65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      color: var(--gold);
+      margin-bottom: .3rem;
+    }
+    .opinion p {
+      font-size: .85rem;
+      color: var(--txt2);
+      font-style: italic;
+    }
+
+    /* note box */
+    .note {
+      background: rgba(33,150,243,.06);
+      border: 1px solid rgba(33,150,243,.2);
+      border-radius: 8px;
+      padding: .75rem 1rem;
+      font-size: .82rem;
+      color: var(--txt2);
+      margin-bottom: 1.2rem;
+    }
+    .note strong { color: var(--c5); }
+
+    /* ── TIPS SECTION ───────────────────────────────────────────────────── */
+    .tips-section {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 1.5rem 3rem;
+    }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: .8rem;
+    }
+    .tip-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.2rem;
+    }
+    .tip-icon {
+      font-size: 1.4rem;
+      margin-bottom: .5rem;
+      display: block;
+    }
+    .tip-title {
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--txt);
+      margin-bottom: .3rem;
+    }
+    .tip-body {
+      font-size: .78rem;
+      color: var(--txt2);
+      line-height: 1.5;
+    }
+    .tips-heading {
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--txt3);
+      margin-bottom: 1rem;
+    }
+
+    /* ── FOOTER ─────────────────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 1rem;
+      font-size: .72rem;
+      color: var(--txt3);
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .hero { padding: 2.5rem 1rem 2rem; }
+      .ch { padding: 1rem; gap: .75rem; }
+      .cb-inner { padding: 1.1rem 1rem 1.2rem; }
+      .hero-stats { gap: 1rem 1.5rem; }
+      .stat-val { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════ HERO -->
+<header class="hero">
+  <div class="hero-eyebrow">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    Q2 Gk S (krm) · Bachillerato 2026
+  </div>
+  <h1>Español Abitur 2026</h1>
+  <p class="hero-sub">Ponencias para preparar la prueba oral &mdash; alle 5 Themen auf einen Blick</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-val">5</span>
+      <span class="stat-lbl">Themen</span>
+    </div>
+    <div class="stat">
+      <span class="stat-val">15 min</span>
+      <span class="stat-lbl">Dauer</span>
+    </div>
+    <div class="stat">
+      <span class="stat-val">Freier</span>
+      <span class="stat-lbl">Vortrag</span>
+    </div>
+    <div class="stat">
+      <span class="stat-val">2026</span>
+      <span class="stat-lbl">Abitur</span>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════════════════════ FORMAT BAR -->
+<div class="format-bar">
+  <div class="format-inner">
+    <span class="format-label">Prüfungsformat</span>
+    <span class="pill gold">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+      Freier Vortrag (keine Karteikarten ablesen)
+    </span>
+    <span class="pill">Referat als PowerPoint</span>
+    <span class="pill">Handout stichpunktartig (mit Verben!)</span>
+    <span class="pill">15 Minuten</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════ PROGRESS -->
+<div class="wrapper progress-wrap">
+  <div class="progress-head">
+    <span>Lernfortschritt</span>
+    <strong id="prog-text">0 / 5 Themen gelernt</strong>
+  </div>
+  <div class="pbar-bg">
+    <div class="pbar-fill" id="pbar"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════ TIMER -->
+<div class="wrapper timer-wrap">
+  <div class="timer-card">
+    <div class="timer-info">
+      <div class="timer-label">Übungs-Timer — mündliche Prüfung</div>
+      <div class="timer-display" id="timer-display">15:00</div>
+      <div class="timer-note">Ziel: 15 Minuten, freier Vortrag ohne Ablesen</div>
+    </div>
+    <div class="timer-btns">
+      <button class="btn start" id="timer-start" onclick="timerToggle()">Start</button>
+      <button class="btn reset" onclick="timerReset()">Reset</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ CARDS -->
+<main>
+
+  <!-- ── TEMA 1 ─────────────────────────────────────────────────────────── -->
+  <article class="card" data-n="1">
+    <div class="ch" onclick="toggle(this)">
+      <div class="badge">1</div>
+      <div class="ch-text">
+        <div class="ch-title">Vivir y convivir en una España multicultural</div>
+        <span class="ch-sub">inmigración ilegal</span>
+      </div>
+      <div class="ch-right">
+        <label class="cklbl" onclick="e => e.stopPropagation()">
+          <input type="checkbox" onchange="updateProgress()" onclick="event.stopPropagation()" />
+          Gelernt
+        </label>
+        <span class="chevron">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </div>
+    </div>
+    <div class="cb">
+      <div class="cb-inner">
+        <div class="note">
+          <strong>Hinweis:</strong> Dieses Thema dient als Beispiel-Ponencia. Die detaillierte Gliederung folgt dem bereitgestellten Unterrichtsmaterial (<em>véase ejemplo</em>).
+        </div>
+
+        <div class="section-title">Thematische Schwerpunkte</div>
+        <ul class="subs">
+          <li>Situation der <strong>illegalen Einwanderung</strong> nach Spanien — Routen, Zahlen, Herkunftsländer</li>
+          <li>Leben von <strong>Einwander·innen</strong> in Spanien — Alltag, Integration, Herausforderungen</li>
+          <li>Gesellschaftliche <strong>Diversität</strong> und Zusammenleben (<span class="kw">convivencia</span>) in spanischen Städten</li>
+          <li>Politische Maßnahmen und die <strong>EU-Migrationspolitik</strong></li>
+          <li>Spanien als <span class="kw">país multicultural</span> — Chancen und Probleme</li>
+        </ul>
+
+        <div class="section-title">Schlüsselbegriffe</div>
+        <div class="keywords">
+          <span class="kwtag">la inmigración ilegal</span>
+          <span class="kwtag">el inmigrante / la inmigrante</span>
+          <span class="kwtag">la integración</span>
+          <span class="kwtag">la convivencia</span>
+          <span class="kwtag">la diversidad cultural</span>
+          <span class="kwtag">España multicultural</span>
+          <span class="kwtag">la frontera</span>
+          <span class="kwtag">el racismo / la discriminación</span>
+        </div>
+
+        <div class="opinion">
+          <div class="op-label">⟶ Opinión</div>
+          <p>Meinungsäußerung zu einem allgemeinen oder spezifischen Aspekt des Themas — inhaltlich und sprachlich vorbereiten!</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ── TEMA 2 ─────────────────────────────────────────────────────────── -->
+  <article class="card" data-n="2">
+    <div class="ch" onclick="toggle(this)">
+      <div class="badge">2</div>
+      <div class="ch-text">
+        <div class="ch-title">El desafío de la pobreza infantil</div>
+        <span class="ch-sub">Latinoamérica · Bolivia · "Quiero ser"</span>
+      </div>
+      <div class="ch-right">
+        <label class="cklbl">
+          <input type="checkbox" onchange="updateProgress()" onclick="event.stopPropagation()" />
+          Gelernt
+        </label>
+        <span class="chevron">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </div>
+    </div>
+    <div class="cb">
+      <div class="cb-inner">
+        <div class="section-title">Prüfungsinhalte</div>
+        <ul class="subs">
+          <li>Die Situation der <strong>Armut in Lateinamerika</strong> — <span class="kw">cifras</span>, indigene Bevölkerung und Armut, <span class="kw">círculo vicioso</span></li>
+          <li><strong>Kinderarbeit</strong> (<span class="kw">trabajo infantil</span>) — Definition, Ursachen, Formen der Arbeit, negative Folgen</li>
+          <li>Das Leben der Kinder <strong>auf der Straße</strong> und von der Straße (<span class="kw">niños en y de la calle</span>)</li>
+          <li><strong>Hilfsmaßnahmen</strong> — Humanitäre Organisationen und ihre Grenzen (<span class="kw">límites</span>)</li>
+          <li>Das <strong>Jugendarbeitsgesetz in Bolivien</strong> — Argumente pro und contra (<span class="kw">a favor y en contra</span>)</li>
+          <li>Film <em>"<strong>Quiero ser</strong>"</em> — Zusammenfassung, Charaktere der Geschwister, persönliche Meinung: Ist das Ende realistisch?</li>
+        </ul>
+
+        <div class="section-title">Schlüsselbegriffe</div>
+        <div class="keywords">
+          <span class="kwtag">la pobreza infantil</span>
+          <span class="kwtag">el trabajo infantil</span>
+          <span class="kwtag">el círculo vicioso</span>
+          <span class="kwtag">los niños de la calle</span>
+          <span class="kwtag">las organizaciones humanitarias</span>
+          <span class="kwtag">la ley del trabajo juvenil</span>
+          <span class="kwtag">Bolivia</span>
+          <span class="kwtag">los indígenas</span>
+          <span class="kwtag">"Quiero ser" (Film)</span>
+          <span class="kwtag">los efectos negativos</span>
+        </div>
+
+        <div class="opinion">
+          <div class="op-label">⟶ Opinión</div>
+          <p>Meinungsäußerung zu einem allgemeinen oder spezifischen Aspekt des Themas — z. B. zum Bolivianischen Gesetz oder zum Filmende.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ── TEMA 3 ─────────────────────────────────────────────────────────── -->
+  <article class="card" data-n="3">
+    <div class="ch" onclick="toggle(this)">
+      <div class="badge">3</div>
+      <div class="ch-text">
+        <div class="ch-title">Las diversas caras del turismo en España</div>
+        <span class="ch-sub">Massentourismus · Nachhaltigkeit · Mallorca</span>
+      </div>
+      <div class="ch-right">
+        <label class="cklbl">
+          <input type="checkbox" onchange="updateProgress()" onclick="event.stopPropagation()" />
+          Gelernt
+        </label>
+        <span class="chevron">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </div>
+    </div>
+    <div class="cb">
+      <div class="cb-inner">
+        <div class="section-title">Prüfungsinhalte</div>
+        <ul class="subs">
+          <li><strong>Tourismus in Spanien</strong> allgemein — Geschichte, meistbesuchte Regionen, Wirtschaft (<span class="kw">fuente de ingresos y motor de empleo</span>), Touristenzahlen und -nationalitäten</li>
+          <li>Die <strong>verschiedenen Tourismusarten</strong> in Spanien</li>
+          <li>Vor- und Nachteile des <strong>Massentourismus</strong> — Andalucía, <span class="kw">Benidorm</span>, Barcelona (Probleme mit Kreuzfahrtschiffen)</li>
+          <li>Neue Tourismusformen — <span class="kw">turismo sostenible</span> / <span class="kw">ecoturismo</span></li>
+          <li><strong>Mallorca</strong> und die <span class="kw">ecotasa</span> (nachhaltige Tourismussteuer) — eine mögliche Lösung?</li>
+        </ul>
+
+        <div class="section-title">Schlüsselbegriffe</div>
+        <div class="keywords">
+          <span class="kwtag">el turismo de masas</span>
+          <span class="kwtag">el turismo sostenible</span>
+          <span class="kwtag">el ecoturismo</span>
+          <span class="kwtag">la ecotasa</span>
+          <span class="kwtag">Mallorca</span>
+          <span class="kwtag">Benidorm</span>
+          <span class="kwtag">los cruceros</span>
+          <span class="kwtag">fuente de ingresos</span>
+          <span class="kwtag">motor de empleo</span>
+          <span class="kwtag">las ventajas y desventajas</span>
+        </div>
+
+        <div class="opinion">
+          <div class="op-label">⟶ Opinión</div>
+          <p>Meinungsäußerung zu einem allgemeinen oder spezifischen Aspekt des Themas — z. B. zur Ecotasa als Lösung für Overtourism.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ── TEMA 4 ─────────────────────────────────────────────────────────── -->
+  <article class="card" data-n="4">
+    <div class="ch" onclick="toggle(this)">
+      <div class="badge">4</div>
+      <div class="ch-text">
+        <div class="ch-title">Retos y oportunidades de la diversidad étnica</div>
+        <span class="ch-sub">Los Mapuche · Chile · Neocolonialismo</span>
+      </div>
+      <div class="ch-right">
+        <label class="cklbl">
+          <input type="checkbox" onchange="updateProgress()" onclick="event.stopPropagation()" />
+          Gelernt
+        </label>
+        <span class="chevron">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </div>
+    </div>
+    <div class="cb">
+      <div class="cb-inner">
+        <div class="section-title">Prüfungsinhalte</div>
+        <ul class="subs">
+          <li><strong>Basisinformationen</strong> über die Mapuche</li>
+          <li>Die <strong>Mapuche-Familie und ihr traditionelles Leben</strong> — auf dem Land: die <span class="kw">ruka</span>, Arbeiten, Lebensweise</li>
+          <li>Eine Nation, <strong>geteilt durch zwei Staaten</strong> (Chile und Argentinien) — Geschichte, Wiederaufbauversuche, aktuelle Lebensbedingungen</li>
+          <li><strong>Konflikte mit dem chilenischen Staat</strong> — Mapuche-Protestorganisationen, Forderungen: Bedeutung von Land (<span class="kw">la tierra</span>), Sprache und Spiritualität</li>
+          <li><strong>Neokolonialismus</strong> und seine Folgen für die Mapuche-Gesellschaft</li>
+        </ul>
+
+        <div class="section-title">Schlüsselbegriffe</div>
+        <div class="keywords">
+          <span class="kwtag">los Mapuche</span>
+          <span class="kwtag">la ruka</span>
+          <span class="kwtag">la tierra</span>
+          <span class="kwtag">las reivindicaciones</span>
+          <span class="kwtag">el neocolonialismo</span>
+          <span class="kwtag">Chile / Argentina</span>
+          <span class="kwtag">la espiritualidad</span>
+          <span class="kwtag">la lengua mapuche</span>
+          <span class="kwtag">organizaciones de protesta</span>
+          <span class="kwtag">la diversidad étnica</span>
+        </div>
+
+        <div class="opinion">
+          <div class="op-label">⟶ Opinión</div>
+          <p>Meinungsäußerung zu einem allgemeinen oder spezifischen Aspekt des Themas — z. B. zum Recht auf Land und kulturelle Selbstbestimmung.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ── TEMA 5 ─────────────────────────────────────────────────────────── -->
+  <article class="card" data-n="5">
+    <div class="ch" onclick="toggle(this)">
+      <div class="badge">5</div>
+      <div class="ch-text">
+        <div class="ch-title">Barcelona: capital polifacética de una comunidad bilingüe</div>
+        <span class="ch-sub">Katalanisch · Bilingüismo · Independentismo</span>
+      </div>
+      <div class="ch-right">
+        <label class="cklbl">
+          <input type="checkbox" onchange="updateProgress()" onclick="event.stopPropagation()" />
+          Gelernt
+        </label>
+        <span class="chevron">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </div>
+    </div>
+    <div class="cb">
+      <div class="cb-inner">
+        <div class="section-title">Prüfungsinhalte</div>
+        <ul class="subs">
+          <li><strong>Grundlegende Fakten</strong> über Katalonien — wirtschaftliche Daten, Sehenswürdigkeiten Barcelonas (kurz)</li>
+          <li>Das <strong>Katalanische</strong> — Merkmale, Verfassung von 1978, <span class="kw">estatutos catalanes</span></li>
+          <li>Die <strong>bilinguale Realität</strong> Kataloniens — in Schulen, öffentlichem Leben, Verwaltung</li>
+          <li>Die <strong>Politik der sprachlichen Immersion</strong> (<span class="kw">inmersión lingüística</span>) — Argumente pro und contra</li>
+          <li>Das Verhältnis Kataloniens zu Spanien — historisch: <strong>Francos Diktatur</strong> und danach; aktuell: der <strong>Unabhängigkeitsanspruch</strong> (<span class="kw">Catalexit</span>): Menschenkette, Referendum, Für und Wider; beteiligte Politiker: <span class="kw">Carles Puigdemont / Quim Torra</span> vs. <span class="kw">Mariano Rajoy / Pedro Sánchez</span> — und ihre Folgen</li>
+        </ul>
+
+        <div class="section-title">Schlüsselbegriffe</div>
+        <div class="keywords">
+          <span class="kwtag">el catalán</span>
+          <span class="kwtag">los estatutos catalanes</span>
+          <span class="kwtag">la inmersión lingüística</span>
+          <span class="kwtag">el bilingüismo</span>
+          <span class="kwtag">el independentismo</span>
+          <span class="kwtag">"Catalexit"</span>
+          <span class="kwtag">la cadena humana</span>
+          <span class="kwtag">el referéndum</span>
+          <span class="kwtag">Puigdemont / Rajoy</span>
+          <span class="kwtag">la dictadura de Franco</span>
+          <span class="kwtag">Cataluña / España</span>
+        </div>
+
+        <div class="opinion">
+          <div class="op-label">⟶ Opinión</div>
+          <p>Meinungsäußerung zu einem allgemeinen oder spezifischen Aspekt des Themas — z. B. zum Recht auf Unabhängigkeit oder zur Sprachpolitik.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+</main>
+
+<!-- ════════════════════════════════════════════════════════════════════ TIPS -->
+<div class="tips-section">
+  <div class="tips-heading">Tipps für die mündliche Prüfung</div>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <span class="tip-icon">🗣</span>
+      <div class="tip-title">Freier Vortrag</div>
+      <div class="tip-body">Karteikarten nur als Stütze — nicht ablesen. Eigene Formulierungen üben, nicht auswendig lernen.</div>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">💬</span>
+      <div class="tip-title">Opinión vorbereiten</div>
+      <div class="tip-body">Jedes Thema schließt mit einer Meinungsäußerung. Eigene Argumente auf Spanisch formulieren und üben.</div>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">📋</span>
+      <div class="tip-title">Handout: Verben!</div>
+      <div class="tip-body">Das Handout muss stichpunktartig sein — aber mit Verben! Keine reinen Substantivaufzählungen.</div>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">⏱</span>
+      <div class="tip-title">Zeitgefühl trainieren</div>
+      <div class="tip-body">15 Minuten klingen viel, gehen aber schnell. Timer nutzen und den Vortrag so oft wie möglich üben.</div>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">🔑</span>
+      <div class="tip-title">Schlüsselbegriffe</div>
+      <div class="tip-body">Spanische Fachbegriffe aktiv verwenden — sie zeigen Kompetenz und strukturieren den Vortrag.</div>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">📚</span>
+      <div class="tip-title">Material nutzen</div>
+      <div class="tip-body">Alle Arbeits- und Infoblätter aus dem Unterricht durcharbeiten. Eigene Recherche ergänzend hinzufügen.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Español Abitur 2026 · Q2 Gk S (krm) · Prüfungsvorbereitung mündliche Prüfung
+</footer>
+
+<script>
+  /* ── ACCORDION ───────────────────────────────────────────────────────── */
+  function toggle(header) {
+    const card = header.closest('.card');
+    const isOpen = card.classList.contains('open');
+    // close all
+    document.querySelectorAll('.card.open').forEach(c => c.classList.remove('open'));
+    // open clicked (unless it was already open)
+    if (!isOpen) card.classList.add('open');
+  }
+
+  /* ── PROGRESS ────────────────────────────────────────────────────────── */
+  function updateProgress() {
+    const boxes  = document.querySelectorAll('.cklbl input[type="checkbox"]');
+    const done   = [...boxes].filter(b => b.checked).length;
+    const total  = boxes.length;
+    const pct    = total ? (done / total) * 100 : 0;
+    document.getElementById('pbar').style.width = pct + '%';
+    document.getElementById('prog-text').textContent = `${done} / ${total} Themen gelernt`;
+  }
+
+  /* ── TIMER ───────────────────────────────────────────────────────────── */
+  const DURATION = 15 * 60; // 15 minutes in seconds
+  let remaining = DURATION;
+  let interval  = null;
+  let running   = false;
+
+  function formatTime(s) {
+    const m = Math.floor(s / 60).toString().padStart(2, '0');
+    const sec = (s % 60).toString().padStart(2, '0');
+    return `${m}:${sec}`;
+  }
+
+  function updateTimerDisplay() {
+    const el = document.getElementById('timer-display');
+    el.textContent = formatTime(remaining);
+    el.className = 'timer-display';
+    if (remaining <= 60)  el.classList.add('alert');
+    else if (remaining <= 180) el.classList.add('warn');
+  }
+
+  function timerToggle() {
+    const btn = document.getElementById('timer-start');
+    if (running) {
+      clearInterval(interval);
+      interval = null;
+      running  = false;
+      btn.textContent = 'Weiter';
+      btn.className   = 'btn start';
+    } else {
+      if (remaining === 0) remaining = DURATION;
+      running = true;
+      btn.textContent = 'Pause';
+      btn.className   = 'btn reset';
+      interval = setInterval(() => {
+        remaining--;
+        updateTimerDisplay();
+        if (remaining <= 0) {
+          clearInterval(interval);
+          interval = null;
+          running  = false;
+          btn.textContent = 'Neu starten';
+          btn.className   = 'btn start';
+          document.getElementById('timer-display').textContent = '⏰ Zeit!';
+          document.getElementById('timer-display').className = 'timer-display alert';
+        }
+      }, 1000);
+    }
+  }
+
+  function timerReset() {
+    clearInterval(interval);
+    interval  = null;
+    running   = false;
+    remaining = DURATION;
+    updateTimerDisplay();
+    const btn = document.getElementById('timer-start');
+    btn.textContent = 'Start';
+    btn.className   = 'btn start';
+  }
+
+  /* ── INIT ────────────────────────────────────────────────────────────── */
+  updateProgress();
+  updateTimerDisplay();
+
+  // Open first card by default
+  document.querySelector('.card[data-n="1"]').classList.add('open');
+</script>
+
+</body>
+</html>
