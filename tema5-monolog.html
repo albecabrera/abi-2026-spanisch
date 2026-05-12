@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tema 5 · Monólogo — Übungsmaterial Barcelona</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:      #0c0f14;
+      --s1:      #141922;
+      --s2:      #1b2130;
+      --s3:      #202a3a;
+      --bdr:     #252d3d;
+      --bdr2:    #2e3a4e;
+      --txt:     #dce8f5;
+      --txt2:    #7f93ae;
+      --txt3:    #46566a;
+      --blue:    #2196f3;
+      --blue-bg: rgba(33,150,243,.1);
+      --blue-bdr:rgba(33,150,243,.3);
+      --green:   #43a047;
+      --grn-bg:  rgba(67,160,71,.1);
+      --grn-bdr: rgba(67,160,71,.3);
+      --gold:    #d4a017;
+      --gld-bg:  rgba(212,160,23,.1);
+      --gld-bdr: rgba(212,160,23,.25);
+      --radius:  12px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--txt);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── TOP BAR ─────────────────────────────────────────────────────── */
+    .topbar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: .75rem 1.5rem;
+      background: var(--s1);
+      border-bottom: 1px solid var(--bdr);
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .8rem;
+      color: var(--txt2);
+      text-decoration: none;
+      border: 1px solid var(--bdr);
+      border-radius: 6px;
+      padding: .35rem .75rem;
+      transition: color .15s, border-color .15s;
+      white-space: nowrap;
+    }
+    .back-link:hover { color: var(--txt); border-color: var(--bdr2); }
+    .topbar-title {
+      flex: 1;
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--txt);
+    }
+    .topbar-sub {
+      font-weight: 400;
+      color: var(--txt2);
+    }
+    .slide-counter {
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--txt2);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    .slide-counter span { color: var(--blue); }
+
+    /* ── PROGRESS BAR ────────────────────────────────────────────────── */
+    .pbar-bg {
+      height: 3px;
+      background: var(--s2);
+      flex-shrink: 0;
+    }
+    .pbar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--blue) 0%, var(--green) 100%);
+      transition: width .4s cubic-bezier(.4,0,.2,1);
+      width: 0%;
+    }
+
+    /* ── MAIN AREA ───────────────────────────────────────────────────── */
+    main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    /* ── SLIDE WRAPPER ───────────────────────────────────────────────── */
+    .slide {
+      width: 100%;
+      max-width: 900px;
+      animation: fadeIn .3s ease;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ── SLIDE TYPE BADGE ────────────────────────────────────────────── */
+    .slide-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .3rem .9rem;
+      border-radius: 2rem;
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 1.1rem;
+    }
+    .slide-badge.aufgabe {
+      background: var(--blue-bg);
+      border: 1px solid var(--blue-bdr);
+      color: var(--blue);
+    }
+    .slide-badge.loesung {
+      background: var(--grn-bg);
+      border: 1px solid var(--grn-bdr);
+      color: var(--green);
+    }
+
+    /* ── AUFGABE LAYOUT ──────────────────────────────────────────────── */
+    .aufgabe-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    @media (max-width: 680px) { .aufgabe-grid { grid-template-columns: 1fr; } }
+
+    /* image placeholder */
+    .img-box {
+      background: var(--s2);
+      border: 2px dashed var(--bdr2);
+      border-radius: var(--radius);
+      padding: 1.75rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .7rem;
+      text-align: center;
+      min-height: 220px;
+    }
+    .img-emoji { font-size: 2.8rem; line-height: 1; }
+    .img-cat {
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--blue);
+    }
+    .img-desc {
+      font-size: .8rem;
+      color: var(--txt2);
+      line-height: 1.55;
+    }
+    .img-note {
+      font-size: .68rem;
+      color: var(--txt3);
+      margin-top: .25rem;
+    }
+
+    /* source tag */
+    .source-tag {
+      display: inline-block;
+      font-size: .68rem;
+      color: var(--txt3);
+      border: 1px solid var(--bdr);
+      border-radius: 2rem;
+      padding: .15rem .6rem;
+      margin-bottom: .6rem;
+    }
+
+    /* quote card */
+    .quote-card {
+      background: var(--s1);
+      border: 1px solid var(--bdr);
+      border-left: 3px solid var(--blue);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.25rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: .6rem;
+    }
+    .quote-text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--txt);
+      line-height: 1.5;
+    }
+    .quote-author {
+      font-size: .78rem;
+      color: var(--txt2);
+    }
+
+    /* vocab */
+    .vocab-box {
+      background: var(--gld-bg);
+      border: 1px solid var(--gld-bdr);
+      border-radius: var(--radius);
+      padding: .75rem 1rem;
+      margin-bottom: .9rem;
+    }
+    .vocab-title {
+      font-size: .65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--gold);
+      margin-bottom: .5rem;
+    }
+    .vocab-item {
+      display: flex;
+      gap: .5rem;
+      font-size: .8rem;
+      color: var(--txt2);
+      line-height: 1.5;
+    }
+    .vocab-es { color: var(--gold); font-weight: 600; }
+    .vocab-de { color: var(--txt2); }
+
+    /* activities */
+    .activities-box {
+      background: var(--s1);
+      border: 1px solid var(--bdr);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.25rem;
+    }
+    .act-title {
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--txt3);
+      margin-bottom: .75rem;
+    }
+    .act-item {
+      display: flex;
+      gap: .65rem;
+      align-items: flex-start;
+      font-size: .875rem;
+      color: var(--txt2);
+      margin-bottom: .5rem;
+      line-height: 1.5;
+    }
+    .act-item::before {
+      content: attr(data-n) '.';
+      color: var(--blue);
+      font-weight: 700;
+      flex-shrink: 0;
+      min-width: 1.2rem;
+    }
+    .act-item strong { color: var(--txt); }
+
+    /* ── LEHRERLÖSUNG LAYOUT ─────────────────────────────────────────── */
+    .ref-card {
+      background: var(--s2);
+      border: 1px solid var(--bdr);
+      border-radius: var(--radius);
+      padding: .85rem 1.1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+    .ref-quote {
+      font-style: italic;
+      font-size: .82rem;
+      color: var(--txt2);
+      flex: 1;
+    }
+    .ref-author {
+      font-size: .75rem;
+      color: var(--txt3);
+      white-space: nowrap;
+    }
+
+    .loesung-section {
+      background: var(--s1);
+      border: 1px solid var(--bdr);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: .9rem;
+    }
+    .loesung-section:last-of-type { margin-bottom: 0; }
+
+    .loesung-head {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .75rem 1.1rem;
+      background: var(--s2);
+      border-bottom: 1px solid var(--bdr);
+    }
+    .loesung-head.a1 { border-left: 3px solid var(--blue); }
+    .loesung-head.a2 { border-left: 3px solid var(--green); }
+    .loesung-head-icon { font-size: 1rem; }
+    .loesung-head-title {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--txt);
+    }
+    .loesung-head-sub {
+      font-size: .7rem;
+      color: var(--txt3);
+      margin-left: .25rem;
+    }
+
+    .loesung-body {
+      padding: 1rem 1.25rem;
+      font-size: .875rem;
+      color: var(--txt2);
+      line-height: 1.7;
+    }
+    .loesung-body strong { color: var(--txt); }
+
+    /* ── NAV ─────────────────────────────────────────────────────────── */
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      background: var(--s1);
+      border-top: 1px solid var(--bdr);
+      flex-shrink: 0;
+    }
+    .nav-btn {
+      padding: .6rem 1.3rem;
+      border-radius: 8px;
+      border: 1px solid var(--bdr2);
+      background: rgba(255,255,255,.05);
+      color: var(--txt);
+      font-size: .85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .15s;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+    .nav-btn:hover:not(:disabled) { background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.15); }
+    .nav-btn:disabled { opacity: .3; cursor: default; }
+    .nav-btn.next-aufgabe {
+      background: var(--blue-bg);
+      border-color: var(--blue-bdr);
+      color: var(--blue);
+    }
+    .nav-btn.next-aufgabe:hover { background: rgba(33,150,243,.18); }
+    .nav-btn.next-loesung {
+      background: var(--grn-bg);
+      border-color: var(--grn-bdr);
+      color: var(--green);
+    }
+    .nav-btn.next-loesung:hover { background: rgba(67,160,71,.18); }
+    .nav-btn.restart {
+      background: var(--gld-bg);
+      border-color: var(--gld-bdr);
+      color: var(--gold);
+    }
+    .nav-btn.restart:hover { background: rgba(212,160,23,.18); }
+
+    /* dots */
+    .nav-dots {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      gap: .3rem;
+      flex-wrap: wrap;
+    }
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--bdr2);
+      transition: background .2s, transform .2s;
+      cursor: pointer;
+    }
+    .dot.aufgabe.active { background: var(--blue); transform: scale(1.3); }
+    .dot.loesung.active { background: var(--green); transform: scale(1.3); }
+    .dot.aufgabe.done { background: rgba(33,150,243,.4); }
+    .dot.loesung.done { background: rgba(67,160,71,.4); }
+
+    /* ── KEYBOARD HINT ───────────────────────────────────────────────── */
+    .kbd-hint {
+      font-size: .68rem;
+      color: var(--txt3);
+      white-space: nowrap;
+    }
+    kbd {
+      display: inline-block;
+      background: var(--s2);
+      border: 1px solid var(--bdr2);
+      border-radius: 3px;
+      padding: .1em .35em;
+      font-size: .75em;
+      color: var(--txt2);
+      font-family: inherit;
+    }
+
+    @media (max-width: 520px) {
+      .topbar-title { display: none; }
+      .kbd-hint { display: none; }
+      .nav-dots { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <a href="index.html" class="back-link">← Übersicht</a>
+  <div class="topbar-title">
+    Tema 5 · Monólogo
+    <span class="topbar-sub"> — Barcelona &amp; Cataluña</span>
+  </div>
+  <div class="slide-counter" id="counter">Folie <span id="cur">1</span> / <span id="tot">16</span></div>
+</header>
+
+<!-- PROGRESS BAR -->
+<div class="pbar-bg"><div class="pbar-fill" id="pbar"></div></div>
+
+<!-- SLIDE CONTENT -->
+<main><div class="slide" id="slide"></div></main>
+
+<!-- NAVIGATION -->
+<nav class="nav-bar">
+  <button class="nav-btn" id="btn-prev" onclick="navigate(-1)">← Zurück</button>
+  <div class="nav-dots" id="dots"></div>
+  <div class="kbd-hint"><kbd>←</kbd><kbd>→</kbd> navigieren</div>
+  <button class="nav-btn" id="btn-next" onclick="navigate(1)">Weiter →</button>
+</nav>
+
+<script>
+/* ═══════════════════════════════════════════════════════ DATA */
+const SLIDES = [
+
+  /* ── FOLIE 1 · Aufgabe ─────────────────────────────────── */
+  { type:'aufgabe', n:1,
+    src:'Cultura Colectiva (2017)',
+    img:{ emoji:'🏴', cat:'Demonstration · Unabhängigkeitsbewegung',
+          desc:'Große Menschenmenge auf einer Landstraße. Im Vordergrund: Estelada (katalanische Unabhängigkeitsflagge) + Schild „BYE BYE SPAIN". Menge in gelber Kleidung.' },
+    quote:'"Yo no me siento español. Me siento catalán. Cataluña es mi patria."',
+    author:'Xavier Sardà — periodista catalán',
+    vocab:null },
+
+  /* ── FOLIE 2 · Lehrerlösung ────────────────────────────── */
+  { type:'loesung', n:1,
+    refQuote:'"Yo no me siento español. Me siento catalán."',
+    refAuthor:'Xavier Sardà',
+    a1:'En la foto se ve una gran manifestación en una carretera. En primer plano, una persona lleva una <strong>Estelada</strong> —la bandera del movimiento independentista catalán— y hay un cartel con la inscripción <strong>"BYE BYE SPAIN"</strong>. Los manifestantes llevan ropa amarilla, un color simbólico del movimiento. El ambiente es masivo y políticamente cargado.',
+    a2:'La foto muestra una manifestación a favor de la independencia de Cataluña, probablemente la <strong>"Diada"</strong> (11 de septiembre, fiesta nacional catalana). El cartel "Bye Bye Spain" refleja el deseo de separación definitiva del Estado español. Esto conecta directamente con la cita de Xavier Sardà: él rechaza la identidad española y reivindica una identidad <strong>exclusivamente catalana</strong>. Tanto la imagen como la cita expresan una postura independentista clara. El contexto histórico es el conflicto político que se intensificó en 2017 con el <strong>referéndum ilegal del 1 de octubre</strong>.' },
+
+  /* ── FOLIE 3 · Aufgabe ─────────────────────────────────── */
+  { type:'aufgabe', n:2,
+    src:'Voanews (2019)',
+    img:{ emoji:'🇪🇸', cat:'Pro-Einheit-Kundgebung · CATALUNYA ES ESPAÑA',
+          desc:'Menschenmenge mit roten und gelben Fahnen (Spanien + Katalonien). Großes Banner: „CATALUNYA ES ESPAÑA". Pro-spanische Demonstration in Katalonien.' },
+    quote:'"Me siento catalán y español y no tengo pelos en la lengua al decirlo."',
+    author:'Marc Marquéz — corredor de motos español',
+    vocab:[{ es:'no tener pelos en la lengua al…', de:'kein Blatt vor den Mund nehmen bei…' }] },
+
+  /* ── FOLIE 4 · Lehrerlösung ────────────────────────────── */
+  { type:'loesung', n:2,
+    refQuote:'"Me siento catalán y español…"',
+    refAuthor:'Marc Marquéz',
+    a1:'En la foto se ve una multitud con banderas españolas y catalanas. Un gran cartel dice <strong>"CATALUNYA ES ESPAÑA"</strong> —afirmando la unidad entre Cataluña y España. El ambiente parece organizado y político, probablemente una contramanifestación frente al independentismo.',
+    a2:'La foto muestra una concentración de personas que defienden la unidad de España y rechazan la independencia. Esto se relaciona con la cita de <strong>Marc Marquéz</strong>, famoso piloto de motos nacido en Cataluña, quien se siente tanto catalán como español y no tiene miedo a decirlo abiertamente (<em>"no tener pelos en la lengua"</em>). A diferencia de Sardà, Marquéz representa una <strong>identidad doble</strong> y un rechazo al independentismo. El contexto muestra que la sociedad catalana está <strong>profundamente dividida</strong>: no todos los catalanes quieren la independencia. Según encuestas, el apoyo a la independencia oscila en torno al 40–50%.' },
+
+  /* ── FOLIE 5 · Aufgabe ─────────────────────────────────── */
+  { type:'aufgabe', n:3,
+    src:'El Independiente (2020)',
+    img:{ emoji:'🏫', cat:'Schule · Sprachpolitik · Inmersión lingüística',
+          desc:'Schulklasse aus Schülerperspektive. Mehrere Kinder sitzen in Reihen. Lehrerin steht vorne am Whiteboard. Alltägliche Unterrichtsszene in Spanien.' },
+    quote:'"Estos alumnos llegados de otros puntos de España no pueden estudiar en su lengua materna, el castellano, cuando vienen a Cataluña. Tenemos que cambiarlo."',
+    author:'Ana Losada — presidenta de la Asamblea por una Escuela Bilingüe (2020)',
+    vocab:null },
+
+  /* ── FOLIE 6 · Lehrerlösung ────────────────────────────── */
+  { type:'loesung', n:3,
+    refQuote:'"…no pueden estudiar en su lengua materna…"',
+    refAuthor:'Ana Losada',
+    a1:'En la foto se ve un <strong>aula escolar</strong> desde la perspectiva de un alumno. Varios niños están sentados en filas mirando hacia delante, donde una profesora está de pie. Es una escena educativa cotidiana que podría representar cualquier colegio en España.',
+    a2:'La foto representa el contexto escolar en Cataluña, donde se debate la <strong>lengua de instrucción</strong>. Ana Losada, presidenta de la Asamblea por una Escuela Bilingüe, critica que los alumnos castellanohablantes no pueden estudiar en su lengua materna en los colegios catalanes. En Cataluña existe la <strong>"inmersión lingüística"</strong>: el catalán es la principal lengua de enseñanza. La cita defiende un sistema bilingüe con más espacio para el castellano. El debate refleja la tensión entre la <strong>normalización del catalán</strong> como lengua propia y el derecho de los hispanohablantes a estudiar en su lengua materna.' },
+
+  /* ── FOLIE 7 · Aufgabe ─────────────────────────────────── */
+  { type:'aufgabe', n:4,
+    src:'El País (2017)',
+    img:{ emoji:'⚽', cat:'FC Barcelona · Estadio · LLIBERTAT',
+          desc:'Aficionados del Barça en el estadio. Múltiples Esteladas (banderas independentistas). Gran cartel con la palabra „LLIBERTAT" (libertad en catalán).' },
+    quote:'"Soy y me siento catalán, y estoy orgulloso de la gente de Cataluña."',
+    author:'Gerard Piqué — futbolista del FC Barcelona',
+    vocab:[
+      { es:'llibertat', de:'catalán: "libertad"' },
+      { es:'orgulloso/a de', de:'stolz auf' }
+    ] },
+
+  /* ── FOLIE 8 · Lehrerlösung ────────────────────────────── */
+  { type:'loesung', n:4,
+    refQuote:'"Soy y me siento catalán…"',
+    refAuthor:'Gerard Piqué',
+    a1:'En la foto se ven <strong>aficionados del FC Barcelona</strong> en un estadio. Sostienen Esteladas —banderas del movimiento independentista catalán— y un gran cartel con la palabra <strong>"LLIBERTAT"</strong>, que significa "libertad" en catalán. La escena mezcla deporte y política de forma clara.',
+    a2:'La foto ilustra cómo el <strong>deporte y la política se entrelazan</strong> en Cataluña. El FC Barcelona es históricamente un símbolo de la identidad y resistencia catalanas. La palabra "llibertat" es un lema central del movimiento independentista. La cita de <strong>Gerard Piqué</strong>, exjugador del Barça y de la selección española, refleja un orgullo catalán claro. Aunque representó a España internacionalmente, se identifica como catalán y muestra solidaridad con su gente. El contexto es el año 2017, cuando la tensión política alcanzó su punto álgido con el referéndum de independencia.' },
+
+  /* ── FOLIE 9 · Aufgabe ─────────────────────────────────── */
+  { type:'aufgabe', n:5,
+    src:'El Confidencial (2017)',
+    img:{ emoji:'✊', cat:'Demonstration · "I HAVE A DREAM" · Estelada',
+          desc:'Große Menschenmenge bei einer Demo. Eine Estelada trägt den Schriftzug „I HAVE A DREAM" — Anspielung auf die Rede von Martin Luther King. Politisch-emotionale Stimmung.' },
+    quote:'"Yo me siento catalán. La cultura y la lengua catalana forman parte de mi identidad."',
+    author:'Enrique — alumno catalán, 14 años',
+    vocab:null },
+
+  /* ── FOLIE 10 · Lehrerlösung ───────────────────────────── */
+  { type:'loesung', n:5,
+    refQuote:'"La cultura y la lengua catalana forman parte de mi identidad."',
+    refAuthor:'Enrique, 14 años',
+    a1:'En la foto se ve una <strong>gran manifestación</strong> con una Estelada que lleva la inscripción <strong>"I HAVE A DREAM"</strong> —una referencia al famoso discurso de Martin Luther King. La multitud parece comprometida y emotiva. El ambiente es el de una concentración política masiva.',
+    a2:'La referencia al discurso "I Have a Dream" de Martin Luther King asocia el independentismo catalán con el ideal de <strong>libertad y autodeterminación</strong>. Igual que MLK soñaba con igualdad, los independentistas sueñan con una Cataluña soberana. La cita de <strong>Enrique</strong>, un alumno de solo 14 años, muestra que el sentimiento de identidad catalana está arraigado también en la <strong>juventud</strong>. Él destaca la lengua y la cultura como pilares de su identidad —factores que también impulsan la demanda de independencia. El contexto: en 2017, el movimiento movilizó a amplias capas de la sociedad, incluidos jóvenes.' },
+
+  /* ── FOLIE 11 · Aufgabe ────────────────────────────────── */
+  { type:'aufgabe', n:6,
+    src:'La Razón (2019)',
+    img:{ emoji:'🔥', cat:'Radikaler Protest · Flaggenverbrennung',
+          desc:'Vermummte Personen in Schwarz (Kapuzen + Masken) verbrennen eine spanische Fahne auf der Straße. Fäuste gehoben. Radikale, gewaltsame Protestszene.' },
+    quote:'"Soy independista. Cataluña sería una nación maravillosa, pequeña, pero muy fuerte."',
+    author:'Dyango — cantante catalán',
+    vocab:[
+      { es:'quemar algo', de:'etwas verbrennen' },
+      { es:'estar en llamas', de:'in Flammen stehen' },
+      { es:'la mascarilla', de:'die Maske' },
+      { es:'levantar el puño', de:'die Faust heben' },
+      { es:'el capuchón', de:'die Kapuze' }
+    ] },
+
+  /* ── FOLIE 12 · Lehrerlösung ───────────────────────────── */
+  { type:'loesung', n:6,
+    refQuote:'"Cataluña sería una nación maravillosa, pequeña, pero muy fuerte."',
+    refAuthor:'Dyango',
+    a1:'En la foto se ven personas <strong>vestidas de negro</strong>, con capuchones y mascarillas que impiden identificarlas. Están <strong>quemando una bandera española</strong> en plena calle. Algunas levantan el puño en señal de protesta. La escena es violenta y radical.',
+    a2:'Quemar la bandera española es un acto simbólico de <strong>rechazo total al Estado español</strong>. Esta acción representa el ala más radical del movimiento independentista, que va más allá de las manifestaciones pacíficas. La cita del cantante <strong>Dyango</strong> expresa un sueño independentista: una Cataluña soberana, pequeña pero poderosa. Sin embargo, estos métodos violentos contrastan con la <strong>mayoría pacífica</strong> del movimiento. El contexto muestra que dentro del independentismo existen diferentes corrientes —desde partidos parlamentarios hasta grupos radicales—, lo que complica el diálogo con el Estado español.' },
+
+  /* ── FOLIE 13 · Aufgabe ────────────────────────────────── */
+  { type:'aufgabe', n:7,
+    src:'Market Watch (2017)',
+    img:{ emoji:'🏳️', cat:'Doppelidentität · PROUD TO BE CATALAN AND SPANISH',
+          desc:'Große Menschenmasse mit spanischen und katalanischen Fahnen. Eine Person hält ein Schild: „PROUD TO BE CATALAN AND SPANISH". Symbole beider Identitäten sichtbar.' },
+    quote:'"Soy catalana, hablo catalán, me gusta la crema catalana, la cultura catalana… pero no quiero la independencia."',
+    author:'Persona anónima en Facebook (2019)',
+    vocab:null },
+
+  /* ── FOLIE 14 · Lehrerlösung ───────────────────────────── */
+  { type:'loesung', n:7,
+    refQuote:'"…pero no quiero la independencia."',
+    refAuthor:'Persona anónima en Facebook',
+    a1:'En la foto se ve una <strong>gran concentración</strong> con banderas españolas y catalanas. Una persona sostiene un cartel: <strong>"PROUD TO BE CATALAN AND SPANISH"</strong> —orgulloso de ser catalán y español a la vez. Los símbolos de ambas identidades conviven en la misma imagen.',
+    a2:'La foto y la cita representan a aquellos catalanes que tienen una <strong>identidad doble</strong> y rechazan la independencia. El cartel muestra que para muchos las dos identidades son compatibles. La persona anónima se identifica cultural y lingüísticamente con Cataluña —lengua, gastronomía, cultura—, pero no quiere la independencia. Esto es importante: <strong>no todos los catalanistas son independentistas</strong>. La sociedad catalana está profundamente dividida en esta cuestión. La foto y el cita ilustran la postura de quienes quieren más autonomía pero dentro de España.' },
+
+  /* ── FOLIE 15 · Aufgabe ────────────────────────────────── */
+  { type:'aufgabe', n:8,
+    src:'Barcelona Internacional Welcome (2014)',
+    img:{ emoji:'📚', cat:'Grundschule · Bilingüe Klasse · Sprachpolitik',
+          desc:'Grundschulklasse. Im Vordergrund meldet sich ein Kind. Mehrere Schüler·innen sitzen. Lehrerin zeigt auf ein Kind im Hintergrund. Aktives Unterrichtsklima.' },
+    quote:'"Creo que deberíamos aprender las dos lenguas en la escuela, porque las dos son muy importantes."',
+    author:'Nuria — una chica catalana',
+    vocab:null },
+
+  /* ── FOLIE 16 · Lehrerlösung ───────────────────────────── */
+  { type:'loesung', n:8,
+    refQuote:'"…deberíamos aprender las dos lenguas en la escuela."',
+    refAuthor:'Nuria',
+    a1:'En la foto se ve una <strong>clase de primaria</strong>. En primer plano, una niña levanta la mano para participar. Los alumnos están sentados en pupitres y la profesora está al fondo señalando a un alumno. El ambiente es activo y participativo.',
+    a2:'La foto muestra el contexto educativo donde se produce el debate sobre las lenguas en Cataluña. Nuria, una chica catalana, defiende el aprendizaje de <strong>las dos lenguas —catalán y castellano—</strong> en la escuela, ya que las considera igualmente importantes. Esto se relaciona con la política de <strong>"inmersión lingüística"</strong>: en Cataluña el catalán es la lengua vehicular de enseñanza y el castellano tiene un papel secundario. Los partidarios argumentan que protege una <strong>lengua minoritaria</strong>; los críticos, como Ana Losada (folio 3), piden más espacio para el castellano. La foto con niños pequeños subraya que este debate afecta desde la primera infancia y tiene consecuencias a largo plazo para la sociedad catalana.' },
+];
+
+/* ═══════════════════════════════════════════════════════ STATE */
+let cur = 0;
+const total = SLIDES.length;
+
+/* ═══════════════════════════════════════════════════════ RENDER */
+function render() {
+  const s = SLIDES[cur];
+
+  // counter
+  document.getElementById('cur').textContent = cur + 1;
+  document.getElementById('tot').textContent = total;
+
+  // progress bar
+  document.getElementById('pbar').style.width = ((cur + 1) / total * 100) + '%';
+
+  // prev button
+  document.getElementById('btn-prev').disabled = cur === 0;
+
+  // next button
+  const btnNext = document.getElementById('btn-next');
+  if (cur === total - 1) {
+    btnNext.textContent = '↺ Neustart';
+    btnNext.className = 'nav-btn restart';
+  } else if (s.type === 'aufgabe') {
+    btnNext.textContent = 'Lehrerlösung anzeigen →';
+    btnNext.className = 'nav-btn next-aufgabe';
+  } else {
+    btnNext.textContent = 'Nächste Aufgabe →';
+    btnNext.className = 'nav-btn next-loesung';
+  }
+
+  // dots
+  const dots = document.getElementById('dots');
+  dots.innerHTML = SLIDES.map((sl, i) =>
+    `<div class="dot ${sl.type} ${i === cur ? 'active' : i < cur ? 'done' : ''}" onclick="goTo(${i})" title="Folie ${i+1}"></div>`
+  ).join('');
+
+  // slide content
+  const el = document.getElementById('slide');
+  el.innerHTML = s.type === 'aufgabe' ? renderAufgabe(s) : renderLoesung(s);
+  el.scrollTop = 0;
+}
+
+function renderAufgabe(s) {
+  const vocabHtml = s.vocab ? `
+    <div class="vocab-box">
+      <div class="vocab-title">📖 Anotaciones</div>
+      ${s.vocab.map(v => `
+        <div class="vocab-item">
+          <span class="vocab-es">${v.es}</span>
+          <span class="vocab-de">— ${v.de}</span>
+        </div>`).join('')}
+    </div>` : '';
+
+  return `
+    <div class="slide-badge aufgabe">📋 Aufgabe ${s.n} von 8</div>
+
+    <div class="aufgabe-grid">
+      <div>
+        <div class="img-box">
+          <div class="img-emoji">${s.img.emoji}</div>
+          <div class="img-cat">${s.img.cat}</div>
+          <div class="img-desc">${s.img.desc}</div>
+          <div class="img-note">☝ Beschreibe das Foto auf Spanisch</div>
+        </div>
+        <div style="margin-top:.6rem">
+          <span class="source-tag">Quelle: ${s.src}</span>
+          <div class="quote-card">
+            <div class="quote-text">${s.quote}</div>
+            <div class="quote-author">— ${s.author}</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        ${vocabHtml}
+        <div class="activities-box">
+          <div class="act-title">Actividades</div>
+          <div class="act-item" data-n="1">
+            <strong>Describe la foto.</strong>
+          </div>
+          <div class="act-item" data-n="2" style="margin-top:.25rem">
+            Relaciona la foto con la cita y explica el <strong>tema y el contexto</strong>.
+          </div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function renderLoesung(s) {
+  return `
+    <div class="slide-badge loesung">✅ Lehrerlösung · Aufgabe ${s.n} von 8</div>
+
+    <div class="ref-card">
+      <div class="ref-quote">${s.refQuote}</div>
+      <div class="ref-author">— ${s.refAuthor}</div>
+    </div>
+
+    <div class="loesung-section">
+      <div class="loesung-head a1">
+        <span class="loesung-head-icon">📸</span>
+        <span class="loesung-head-title">Aufgabe 1</span>
+        <span class="loesung-head-sub">— Beschreibung der Foto</span>
+      </div>
+      <div class="loesung-body">${s.a1}</div>
+    </div>
+
+    <div class="loesung-section">
+      <div class="loesung-head a2">
+        <span class="loesung-head-icon">💬</span>
+        <span class="loesung-head-title">Aufgabe 2</span>
+        <span class="loesung-head-sub">— Tema, Kontext &amp; Verbindung zum Zitat</span>
+      </div>
+      <div class="loesung-body">${s.a2}</div>
+    </div>`;
+}
+
+/* ═══════════════════════════════════════════════════════ NAV */
+function navigate(dir) {
+  const next = cur + dir;
+  if (next === total) { cur = 0; }
+  else if (next < 0) { return; }
+  else { cur = next; }
+  render();
+  window.scrollTo(0,0);
+}
+
+function goTo(i) {
+  cur = i;
+  render();
+}
+
+/* keyboard */
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') navigate(1);
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   navigate(-1);
+});
+
+/* touch swipe */
+let touchX = 0;
+document.addEventListener('touchstart', e => touchX = e.touches[0].clientX, { passive:true });
+document.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 50) navigate(dx < 0 ? 1 : -1);
+}, { passive:true });
+
+/* init */
+render();
+</script>
+</body>
+</html>

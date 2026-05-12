@@ -471,6 +471,29 @@
       font-style: italic;
     }
 
+    /* monolog button */
+    .monolog-btn {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin-top: 1.1rem;
+      padding: .85rem 1.1rem;
+      background: rgba(33,150,243,.08);
+      border: 1px solid rgba(33,150,243,.3);
+      border-radius: 8px;
+      color: var(--c5);
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: 600;
+      transition: background .15s, border-color .15s;
+    }
+    .monolog-btn:hover {
+      background: rgba(33,150,243,.16);
+      border-color: rgba(33,150,243,.5);
+    }
+    .monolog-btn svg { flex-shrink: 0; }
+    .monolog-btn svg:last-child { margin-left: auto; }
+
     /* note box */
     .note {
       background: rgba(33,150,243,.06);
@@ -872,6 +895,12 @@
           <div class="op-label">⟶ Opinión</div>
           <p>Meinungsäußerung zu einem allgemeinen oder spezifischen Aspekt des Themas — z. B. zum Recht auf Unabhängigkeit oder zur Sprachpolitik.</p>
         </div>
+
+        <a href="tema5-monolog.html" class="monolog-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          Monólogo-Übung starten — 8 Folien mit Lehrerlösung
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
       </div>
     </div>
   </article>
