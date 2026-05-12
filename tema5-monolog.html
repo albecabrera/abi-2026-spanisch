@@ -151,37 +151,38 @@
     }
     @media (max-width: 680px) { .aufgabe-grid { grid-template-columns: 1fr; } }
 
-    /* image placeholder */
+    /* image */
     .img-box {
       background: var(--s2);
-      border: 2px dashed var(--bdr2);
       border-radius: var(--radius);
-      padding: 1.75rem 1.25rem;
+      overflow: hidden;
+      position: relative;
+    }
+    .img-box img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      max-height: 320px;
+    }
+    .img-hint {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: .7rem;
-      text-align: center;
-      min-height: 220px;
-    }
-    .img-emoji { font-size: 2.8rem; line-height: 1; }
-    .img-cat {
+      gap: .4rem;
+      padding: .55rem .85rem;
       font-size: .7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--blue);
-    }
-    .img-desc {
-      font-size: .8rem;
-      color: var(--txt2);
-      line-height: 1.55;
-    }
-    .img-note {
-      font-size: .68rem;
       color: var(--txt3);
-      margin-top: .25rem;
+      background: var(--s2);
+      border-top: 1px solid var(--bdr);
+    }
+    /* thumbnail in solution card */
+    .ref-thumb {
+      width: 72px;
+      height: 52px;
+      object-fit: cover;
+      border-radius: 6px;
+      flex-shrink: 0;
+      border: 1px solid var(--bdr2);
     }
 
     /* source tag */
@@ -461,14 +462,14 @@ const SLIDES = [
   /* ── FOLIE 1 · Aufgabe ─────────────────────────────────── */
   { type:'aufgabe', n:1,
     src:'Cultura Colectiva (2017)',
-    img:{ emoji:'🏴', cat:'Demonstration · Unabhängigkeitsbewegung',
-          desc:'Große Menschenmenge auf einer Landstraße. Im Vordergrund: Estelada (katalanische Unabhängigkeitsflagge) + Schild „BYE BYE SPAIN". Menge in gelber Kleidung.' },
+    imgSrc:'img/slide01.jpeg',
     quote:'"Yo no me siento español. Me siento catalán. Cataluña es mi patria."',
     author:'Xavier Sardà — periodista catalán',
     vocab:null },
 
   /* ── FOLIE 2 · Lehrerlösung ────────────────────────────── */
   { type:'loesung', n:1,
+    imgSrc:'img/slide01.jpeg',
     refQuote:'"Yo no me siento español. Me siento catalán."',
     refAuthor:'Xavier Sardà',
     a1:'En la foto se ve una gran manifestación en una carretera. En primer plano, una persona lleva una <strong>Estelada</strong> —la bandera del movimiento independentista catalán— y hay un cartel con la inscripción <strong>"BYE BYE SPAIN"</strong>. Los manifestantes llevan ropa amarilla, un color simbólico del movimiento. El ambiente es masivo y políticamente cargado.',
@@ -477,14 +478,14 @@ const SLIDES = [
   /* ── FOLIE 3 · Aufgabe ─────────────────────────────────── */
   { type:'aufgabe', n:2,
     src:'Voanews (2019)',
-    img:{ emoji:'🇪🇸', cat:'Pro-Einheit-Kundgebung · CATALUNYA ES ESPAÑA',
-          desc:'Menschenmenge mit roten und gelben Fahnen (Spanien + Katalonien). Großes Banner: „CATALUNYA ES ESPAÑA". Pro-spanische Demonstration in Katalonien.' },
+    imgSrc:'img/slide02.jpeg',
     quote:'"Me siento catalán y español y no tengo pelos en la lengua al decirlo."',
     author:'Marc Marquéz — corredor de motos español',
     vocab:[{ es:'no tener pelos en la lengua al…', de:'kein Blatt vor den Mund nehmen bei…' }] },
 
   /* ── FOLIE 4 · Lehrerlösung ────────────────────────────── */
   { type:'loesung', n:2,
+    imgSrc:'img/slide02.jpeg',
     refQuote:'"Me siento catalán y español…"',
     refAuthor:'Marc Marquéz',
     a1:'En la foto se ve una multitud con banderas españolas y catalanas. Un gran cartel dice <strong>"CATALUNYA ES ESPAÑA"</strong> —afirmando la unidad entre Cataluña y España. El ambiente parece organizado y político, probablemente una contramanifestación frente al independentismo.',
@@ -493,14 +494,14 @@ const SLIDES = [
   /* ── FOLIE 5 · Aufgabe ─────────────────────────────────── */
   { type:'aufgabe', n:3,
     src:'El Independiente (2020)',
-    img:{ emoji:'🏫', cat:'Schule · Sprachpolitik · Inmersión lingüística',
-          desc:'Schulklasse aus Schülerperspektive. Mehrere Kinder sitzen in Reihen. Lehrerin steht vorne am Whiteboard. Alltägliche Unterrichtsszene in Spanien.' },
+    imgSrc:'img/slide03.jpeg',
     quote:'"Estos alumnos llegados de otros puntos de España no pueden estudiar en su lengua materna, el castellano, cuando vienen a Cataluña. Tenemos que cambiarlo."',
     author:'Ana Losada — presidenta de la Asamblea por una Escuela Bilingüe (2020)',
     vocab:null },
 
   /* ── FOLIE 6 · Lehrerlösung ────────────────────────────── */
   { type:'loesung', n:3,
+    imgSrc:'img/slide03.jpeg',
     refQuote:'"…no pueden estudiar en su lengua materna…"',
     refAuthor:'Ana Losada',
     a1:'En la foto se ve un <strong>aula escolar</strong> desde la perspectiva de un alumno. Varios niños están sentados en filas mirando hacia delante, donde una profesora está de pie. Es una escena educativa cotidiana que podría representar cualquier colegio en España.',
@@ -509,8 +510,7 @@ const SLIDES = [
   /* ── FOLIE 7 · Aufgabe ─────────────────────────────────── */
   { type:'aufgabe', n:4,
     src:'El País (2017)',
-    img:{ emoji:'⚽', cat:'FC Barcelona · Estadio · LLIBERTAT',
-          desc:'Aficionados del Barça en el estadio. Múltiples Esteladas (banderas independentistas). Gran cartel con la palabra „LLIBERTAT" (libertad en catalán).' },
+    imgSrc:'img/slide04.jpeg',
     quote:'"Soy y me siento catalán, y estoy orgulloso de la gente de Cataluña."',
     author:'Gerard Piqué — futbolista del FC Barcelona',
     vocab:[
@@ -520,6 +520,7 @@ const SLIDES = [
 
   /* ── FOLIE 8 · Lehrerlösung ────────────────────────────── */
   { type:'loesung', n:4,
+    imgSrc:'img/slide04.jpeg',
     refQuote:'"Soy y me siento catalán…"',
     refAuthor:'Gerard Piqué',
     a1:'En la foto se ven <strong>aficionados del FC Barcelona</strong> en un estadio. Sostienen Esteladas —banderas del movimiento independentista catalán— y un gran cartel con la palabra <strong>"LLIBERTAT"</strong>, que significa "libertad" en catalán. La escena mezcla deporte y política de forma clara.',
@@ -528,14 +529,14 @@ const SLIDES = [
   /* ── FOLIE 9 · Aufgabe ─────────────────────────────────── */
   { type:'aufgabe', n:5,
     src:'El Confidencial (2017)',
-    img:{ emoji:'✊', cat:'Demonstration · "I HAVE A DREAM" · Estelada',
-          desc:'Große Menschenmenge bei einer Demo. Eine Estelada trägt den Schriftzug „I HAVE A DREAM" — Anspielung auf die Rede von Martin Luther King. Politisch-emotionale Stimmung.' },
+    imgSrc:'img/slide05.jpeg',
     quote:'"Yo me siento catalán. La cultura y la lengua catalana forman parte de mi identidad."',
     author:'Enrique — alumno catalán, 14 años',
     vocab:null },
 
   /* ── FOLIE 10 · Lehrerlösung ───────────────────────────── */
   { type:'loesung', n:5,
+    imgSrc:'img/slide05.jpeg',
     refQuote:'"La cultura y la lengua catalana forman parte de mi identidad."',
     refAuthor:'Enrique, 14 años',
     a1:'En la foto se ve una <strong>gran manifestación</strong> con una Estelada que lleva la inscripción <strong>"I HAVE A DREAM"</strong> —una referencia al famoso discurso de Martin Luther King. La multitud parece comprometida y emotiva. El ambiente es el de una concentración política masiva.',
@@ -544,8 +545,7 @@ const SLIDES = [
   /* ── FOLIE 11 · Aufgabe ────────────────────────────────── */
   { type:'aufgabe', n:6,
     src:'La Razón (2019)',
-    img:{ emoji:'🔥', cat:'Radikaler Protest · Flaggenverbrennung',
-          desc:'Vermummte Personen in Schwarz (Kapuzen + Masken) verbrennen eine spanische Fahne auf der Straße. Fäuste gehoben. Radikale, gewaltsame Protestszene.' },
+    imgSrc:'img/slide06.jpeg',
     quote:'"Soy independista. Cataluña sería una nación maravillosa, pequeña, pero muy fuerte."',
     author:'Dyango — cantante catalán',
     vocab:[
@@ -558,6 +558,7 @@ const SLIDES = [
 
   /* ── FOLIE 12 · Lehrerlösung ───────────────────────────── */
   { type:'loesung', n:6,
+    imgSrc:'img/slide06.jpeg',
     refQuote:'"Cataluña sería una nación maravillosa, pequeña, pero muy fuerte."',
     refAuthor:'Dyango',
     a1:'En la foto se ven personas <strong>vestidas de negro</strong>, con capuchones y mascarillas que impiden identificarlas. Están <strong>quemando una bandera española</strong> en plena calle. Algunas levantan el puño en señal de protesta. La escena es violenta y radical.',
@@ -566,14 +567,14 @@ const SLIDES = [
   /* ── FOLIE 13 · Aufgabe ────────────────────────────────── */
   { type:'aufgabe', n:7,
     src:'Market Watch (2017)',
-    img:{ emoji:'🏳️', cat:'Doppelidentität · PROUD TO BE CATALAN AND SPANISH',
-          desc:'Große Menschenmasse mit spanischen und katalanischen Fahnen. Eine Person hält ein Schild: „PROUD TO BE CATALAN AND SPANISH". Symbole beider Identitäten sichtbar.' },
+    imgSrc:'img/slide07.jpeg',
     quote:'"Soy catalana, hablo catalán, me gusta la crema catalana, la cultura catalana… pero no quiero la independencia."',
     author:'Persona anónima en Facebook (2019)',
     vocab:null },
 
   /* ── FOLIE 14 · Lehrerlösung ───────────────────────────── */
   { type:'loesung', n:7,
+    imgSrc:'img/slide07.jpeg',
     refQuote:'"…pero no quiero la independencia."',
     refAuthor:'Persona anónima en Facebook',
     a1:'En la foto se ve una <strong>gran concentración</strong> con banderas españolas y catalanas. Una persona sostiene un cartel: <strong>"PROUD TO BE CATALAN AND SPANISH"</strong> —orgulloso de ser catalán y español a la vez. Los símbolos de ambas identidades conviven en la misma imagen.',
@@ -582,14 +583,14 @@ const SLIDES = [
   /* ── FOLIE 15 · Aufgabe ────────────────────────────────── */
   { type:'aufgabe', n:8,
     src:'Barcelona Internacional Welcome (2014)',
-    img:{ emoji:'📚', cat:'Grundschule · Bilingüe Klasse · Sprachpolitik',
-          desc:'Grundschulklasse. Im Vordergrund meldet sich ein Kind. Mehrere Schüler·innen sitzen. Lehrerin zeigt auf ein Kind im Hintergrund. Aktives Unterrichtsklima.' },
+    imgSrc:'img/slide08.jpeg',
     quote:'"Creo que deberíamos aprender las dos lenguas en la escuela, porque las dos son muy importantes."',
     author:'Nuria — una chica catalana',
     vocab:null },
 
   /* ── FOLIE 16 · Lehrerlösung ───────────────────────────── */
   { type:'loesung', n:8,
+    imgSrc:'img/slide08.jpeg',
     refQuote:'"…deberíamos aprender las dos lenguas en la escuela."',
     refAuthor:'Nuria',
     a1:'En la foto se ve una <strong>clase de primaria</strong>. En primer plano, una niña levanta la mano para participar. Los alumnos están sentados en pupitres y la profesora está al fondo señalando a un alumno. El ambiente es activo y participativo.',
@@ -656,10 +657,11 @@ function renderAufgabe(s) {
     <div class="aufgabe-grid">
       <div>
         <div class="img-box">
-          <div class="img-emoji">${s.img.emoji}</div>
-          <div class="img-cat">${s.img.cat}</div>
-          <div class="img-desc">${s.img.desc}</div>
-          <div class="img-note">☝ Beschreibe das Foto auf Spanisch</div>
+          <img src="${s.imgSrc}" alt="Foto — Aufgabe ${s.n}" />
+          <div class="img-hint">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Beschreibe das Foto auf Spanisch
+          </div>
         </div>
         <div style="margin-top:.6rem">
           <span class="source-tag">Quelle: ${s.src}</span>
@@ -690,6 +692,7 @@ function renderLoesung(s) {
     <div class="slide-badge loesung">✅ Lehrerlösung · Aufgabe ${s.n} von 8</div>
 
     <div class="ref-card">
+      <img src="${s.imgSrc}" class="ref-thumb" alt="" />
       <div class="ref-quote">${s.refQuote}</div>
       <div class="ref-author">— ${s.refAuthor}</div>
     </div>
