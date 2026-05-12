@@ -693,6 +693,15 @@
       margin-top: .18em;
       white-space: nowrap;
     }
+    /* ── WISSENSBLOCK TEMA-2 OVERRIDE (orange) ─────────────────────────── */
+    .card[data-n="2"] .wissensblock { border-color: rgba(251,140,0,.25); }
+    .card[data-n="2"] .wb-head { background: rgba(251,140,0,.07); border-bottom-color: rgba(251,140,0,.15); }
+    .card[data-n="2"] .wb-body { background: rgba(251,140,0,.03); }
+    .card[data-n="2"] .wb-head-title,
+    .card[data-n="2"] .wb-chev,
+    .card[data-n="2"] .tl-yr,
+    .card[data-n="2"] .scard-val { color: var(--c2); }
+
     /* ── FOOTER ─────────────────────────────────────────────────────────── */
     footer {
       text-align: center;
@@ -886,6 +895,197 @@
           <div class="op-label">⟶ Opinión</div>
           <p>Meinungsäußerung zu einem allgemeinen oder spezifischen Aspekt des Themas — z. B. zum Bolivianischen Gesetz oder zum Filmende.</p>
         </div>
+
+        <!-- ══ WISSENSBLOCK ════════════════════════════════════════════════ -->
+        <div class="wissensblock">
+          <div class="wb-head" onclick="toggleWB(this)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            <span class="wb-head-title">Información de fondo — Trabajo infantil &amp; Pobreza para el examen oral (según NRW)</span>
+            <svg class="wb-chev" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="wb-body">
+
+            <!-- 1. CIFRAS CLAVE -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">📊 Cifras clave — Trabajo infantil en el mundo</div>
+              <div class="stats-grid">
+                <div class="scard"><div class="scard-val">160 mill.</div><div class="scard-lbl">niños trabajadores en el mundo (OIT 2021)</div></div>
+                <div class="scard"><div class="scard-val">73 mill.</div><div class="scard-lbl">en condiciones peligrosas</div></div>
+                <div class="scard"><div class="scard-val">~1 mill.</div><div class="scard-lbl">niños trabajadores en Bolivia</div></div>
+                <div class="scard"><div class="scard-val">10 años</div><div class="scard-lbl">edad mínima legal en Bolivia (desde 2014)</div></div>
+                <div class="scard"><div class="scard-val">6 h/día</div><div class="scard-lbl">máximo permitido por la ley boliviana</div></div>
+                <div class="scard"><div class="scard-val">40 %</div><div class="scard-lbl">de los casos en África subsahariana</div></div>
+              </div>
+            </div>
+
+            <!-- 2. DEFINICIÓN -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">📖 Definición y causas — Trabajo infantil</div>
+              <div class="tl">
+                <div class="tl-row">
+                  <span class="tl-yr">OIT</span>
+                  <span class="tl-txt">Todo trabajo que <strong>priva a los niños de su niñez, su potencial y su dignidad</strong>, y que es perjudicial para su desarrollo físico y psicológico.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">causa</span>
+                  <span class="tl-txt"><strong>Círculo vicioso de la pobreza</strong>: pobreza → trabajo infantil → sin educación → pobreza adulta → sus hijos también en pobreza.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">familia</span>
+                  <span class="tl-txt">Las familias <strong>dependen de los ingresos</strong> de los niños para sobrevivir — a menudo no hay alternativa económica real.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">contexto</span>
+                  <span class="tl-txt">Bolivia: país con <strong>alta tasa de pobreza</strong>, gran población indígena, economía informal extendida.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. FORMAS DE TRABAJO -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">⚒ Formas de trabajo — Los niños ejercen trabajos duros para poco dinero</div>
+              <div class="pc-grid">
+                <div class="pc-box">
+                  <div class="pc-hd pro">Trabajos visibles en la calle</div>
+                  <ul class="pc-ul pro">
+                    <li>Limpian zapatos o cristales de coches</li>
+                    <li>Venden caramelos, periódicos, golosinas</li>
+                    <li>Trabajan en la agricultura o en las minas</li>
+                    <li>Ofrecen servicios domésticos</li>
+                    <li>Recolectan plástico y cartones</li>
+                    <li>Cuidan autos en estacionamientos</li>
+                    <li>Piden limosna / cantan en la calle</li>
+                  </ul>
+                </div>
+                <div class="pc-box">
+                  <div class="pc-hd con">Trabajos peligrosos / explotación</div>
+                  <ul class="pc-ul con">
+                    <li>Prostitución → les roba la infancia</li>
+                    <li>Bandas criminales → tráfico de drogas, robo</li>
+                    <li>Razón: violencia familiar → huyen buscando protección</li>
+                    <li>Consecuencia: muchos se convierten en criminales</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. DERECHOS VULNERADOS -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">🛡 Derechos de los niños — Convención ONU (1989)</div>
+              <div class="tl">
+                <div class="tl-row">
+                  <span class="tl-yr">Art. 28</span>
+                  <span class="tl-txt"><strong>Educación gratuita y desarrollo</strong> — muchos niños no pueden asistir a la escuela</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">Art. 24</span>
+                  <span class="tl-txt"><strong>Atención médica</strong> — expuestos a enfermedades y lesiones laborales</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">Art. 31</span>
+                  <span class="tl-txt"><strong>Jugar, descansar y disfrutar la infancia</strong> — privados de su niñez</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">Art. 19</span>
+                  <span class="tl-txt"><strong>Protección contra violencia y explotación</strong> — sufren abusos en el trabajo y en casa</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">Art. 9</span>
+                  <span class="tl-txt"><strong>Vivir con la familia y recibir amor</strong> — muchos son abandonados o separados</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">clave</span>
+                  <span class="tl-txt">Los derechos fundamentales de muchos <strong>niños de la calle</strong> (<em>gamines</em>) son sistemáticamente vulnerados.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5. LEY BOLIVIA A FAVOR / EN CONTRA -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">⚖️ La ley del trabajo juvenil en Bolivia (2014) — Argumentos</div>
+              <div class="tl" style="margin-bottom:.75rem">
+                <div class="tl-row">
+                  <span class="tl-yr">ley</span>
+                  <span class="tl-txt">Permite trabajar desde los <strong>10 años</strong>, máximo <strong>6 h/día</strong>, voluntariamente y con permiso oficial. Bolivia es el <strong>único país del mundo</strong> con esta ley.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">contexto</span>
+                  <span class="tl-txt">Se promulgó porque ya había ~1 millón de niños trabajando → urgencia de regular y proteger su situación real.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">crítica</span>
+                  <span class="tl-txt"><strong>Human Rights Watch</strong> y la <strong>OIT</strong> la critican: legalizarla no equivale a protegerla — los abusos continúan sin control efectivo.</span>
+                </div>
+              </div>
+              <div class="pc-grid">
+                <div class="pc-box">
+                  <div class="pc-hd pro">A favor</div>
+                  <ul class="pc-ul pro">
+                    <li>Realidad innegable en Bolivia → imposible prohibirlo</li>
+                    <li>Regulación evita abusos y explotación</li>
+                    <li>Permisos oficiales dan protección formal</li>
+                    <li>Las familias necesitan los ingresos para sobrevivir</li>
+                    <li>Trabajan menos horas → tiempo para estudiar</li>
+                  </ul>
+                </div>
+                <div class="pc-box">
+                  <div class="pc-hd con">En contra</div>
+                  <ul class="pc-ul con">
+                    <li>Único país que legaliza el trabajo infantil → retroceso grave</li>
+                    <li>Los niños deben ir a la escuela, no trabajar</li>
+                    <li>Imposible controlar el cumplimiento de 6 h</li>
+                    <li>Los abusos reales no desaparecen</li>
+                    <li>No es culpa de los niños nacer en pobreza</li>
+                    <li>No ayuda a reducir el trabajo infantil a largo plazo</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- 6. OPINIÓN MODELO -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">💬 Opinión modelo — Para el examen oral</div>
+              <div class="tl">
+                <div class="tl-row">
+                  <span class="tl-yr">tesis</span>
+                  <span class="tl-txt"><strong>La brecha entre ricos y pobres</strong> determina las condiciones de vida de millones de niños — aunque todos tienen derecho a una infancia feliz.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">arg. 1</span>
+                  <span class="tl-txt">No es culpa de los niños haber nacido en familias pobres → <strong>la sociedad global es responsable</strong> del sufrimiento de los <em>gamines</em>.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">arg. 2</span>
+                  <span class="tl-txt">La ley boliviana comprende la realidad, pero <strong>legalizar no es solucionar</strong> — educación y políticas sociales son la única salida real.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">cierre</span>
+                  <span class="tl-txt">Debemos apoyar activamente a los niños: <strong>organizaciones humanitarias, acceso a la educación y eliminación de la pobreza estructural</strong> son las metas irrenunciables.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 7. NRW ANFORDERUNGEN -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">🎓 Requisitos NRW — Prueba oral de Bachillerato (Spanisch)</div>
+              <div class="nrw-box">
+                <div style="font-size:.78rem; color:var(--txt2); margin-bottom:.5rem">Según las <strong style="color:var(--gold)">Vorgaben NRW 2026</strong> — Tema 2: <em>El desafío de la pobreza infantil</em></div>
+                <div class="nrw-rows">
+                  <div class="nrw-row"><span class="nrw-tag">Saber</span>Definición de trabajo infantil (OIT), causas estructurales (círculo vicioso de pobreza), formas de trabajo y efectos negativos físicos/psicológicos.</div>
+                  <div class="nrw-row"><span class="nrw-tag">Saber</span>Ley del trabajo juvenil en Bolivia (2014): contenido exacto, argumentos a favor y en contra, críticas de Human Rights Watch y OIT.</div>
+                  <div class="nrw-row"><span class="nrw-tag">Saber</span>Derechos de los niños (Convención ONU 1989): qué artículos se vulneran y por qué.</div>
+                  <div class="nrw-row"><span class="nrw-tag">Saber</span>Vida de los niños en y de la calle (<em>niños en y de la calle</em>): diferencia, situación, causas.</div>
+                  <div class="nrw-row"><span class="nrw-tag">Film</span>Película <em>"Quiero ser"</em>: trama, personajes (los hermanos), dilema moral central, ¿es el final realista?</div>
+                  <div class="nrw-row"><span class="nrw-tag">Vocab.</span><em>la pobreza · el círculo vicioso · los gamines · la explotación · las org. humanitarias · el trabajo forzado · los derechos vulnerados</em></div>
+                  <div class="nrw-row"><span class="nrw-tag">Opinión</span>Expresar y argumentar posición sobre la ley boliviana O sobre la responsabilidad global frente a la pobreza infantil.</div>
+                  <div class="nrw-row"><span class="nrw-tag">NRW</span>15 min · Referat + Handout con verbos · Meinungsäußerung al final · Freier Vortrag (Karteikarten erlaubt).</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div><!-- /wissensblock -->
+
       </div>
     </div>
   </article>
