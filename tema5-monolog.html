@@ -405,6 +405,60 @@
     .dot.aufgabe.done { background: rgba(33,150,243,.4); }
     .dot.loesung.done { background: rgba(67,160,71,.4); }
 
+    /* ── HINTS (Stichpunkte) ─────────────────────────────────────────── */
+    .hints-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin-top: .8rem;
+    }
+    @media (max-width: 720px) { .hints-wrap { grid-template-columns: 1fr; } }
+
+    .hints-box {
+      background: var(--s2);
+      border: 1px solid var(--bdr);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .hints-head {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .55rem .9rem;
+      border-bottom: 1px solid var(--bdr);
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+    .hints-head.h1 { color: var(--blue); border-left: 3px solid var(--blue); }
+    .hints-head.h2 { color: var(--green); border-left: 3px solid var(--green); }
+    .hints-list {
+      list-style: none;
+      padding: .75rem .9rem;
+      display: flex;
+      flex-direction: column;
+      gap: .45rem;
+    }
+    .hints-list li {
+      display: flex;
+      gap: .55rem;
+      align-items: flex-start;
+      font-size: .8rem;
+      color: var(--txt2);
+      line-height: 1.5;
+    }
+    .hints-list li::before {
+      content: '→';
+      flex-shrink: 0;
+      font-weight: 700;
+      margin-top: .05em;
+    }
+    .hints-list li.h1-item::before { color: var(--blue); }
+    .hints-list li.h2-item::before { color: var(--green); }
+    .hints-list li strong { color: var(--txt); }
+    .hints-list li em { color: #a0b4cc; font-style: italic; }
+
     /* ── KEYBOARD HINT ───────────────────────────────────────────────── */
     .kbd-hint {
       font-size: .68rem;
@@ -473,7 +527,22 @@ const SLIDES = [
     refQuote:'"Yo no me siento español. Me siento catalán."',
     refAuthor:'Xavier Sardà',
     a1:'En la foto se ve una gran manifestación en una carretera. En primer plano, una persona lleva una <strong>Estelada</strong> —la bandera del movimiento independentista catalán— y hay un cartel con la inscripción <strong>"BYE BYE SPAIN"</strong>. Los manifestantes llevan ropa amarilla, un color simbólico del movimiento. El ambiente es masivo y políticamente cargado.',
-    a2:'La foto muestra una manifestación a favor de la independencia de Cataluña, probablemente la <strong>"Diada"</strong> (11 de septiembre, fiesta nacional catalana). El cartel "Bye Bye Spain" refleja el deseo de separación definitiva del Estado español. Esto conecta directamente con la cita de Xavier Sardà: él rechaza la identidad española y reivindica una identidad <strong>exclusivamente catalana</strong>. Tanto la imagen como la cita expresan una postura independentista clara. El contexto histórico es el conflicto político que se intensificó en 2017 con el <strong>referéndum ilegal del 1 de octubre</strong>.' },
+    a2:'La foto muestra una manifestación a favor de la independencia de Cataluña, probablemente la <strong>"Diada"</strong> (11 de septiembre, fiesta nacional catalana). El cartel "Bye Bye Spain" refleja el deseo de separación definitiva del Estado español. Esto conecta directamente con la cita de Xavier Sardà: él rechaza la identidad española y reivindica una identidad <strong>exclusivamente catalana</strong>. Tanto la imagen como la cita expresan una postura independentista clara. El contexto histórico es el conflicto político que se intensificó en 2017 con el <strong>referéndum ilegal del 1 de octubre</strong>.',
+    h1:[
+      '<strong>Im Vordergrund:</strong> Person mit <em>Estelada</em> (katalanische Unabhängigkeitsflagge) + Schild „BYE BYE SPAIN"',
+      '<strong>Farbe:</strong> Gelb dominiert → Symbol der Unabhängigkeitsbewegung',
+      '<strong>Ort:</strong> Landstraße → Demonstrationszug außerhalb der Stadt',
+      '<strong>Menge:</strong> Tausende von Menschen, kein Ende sichtbar → massive Mobilisierung',
+      '<strong>Atmosphäre:</strong> <em>festiva pero política</em> — politisch aufgeladen, aber friedlich',
+    ],
+    h2:[
+      '<strong>Thema:</strong> Katalanische Unabhängigkeitsbewegung (<em>independentismo catalán</em>)',
+      '<strong>Kontext:</strong> Wahrscheinlich <em>La Diada</em> — 11. September, katalanischer Nationalfeiertag',
+      '<strong>2017:</strong> Referéndum ilegal del 1 de octubre → Eskalationspunkt',
+      '<strong>Zitat:</strong> Sardà lehnt spanische Identität ab → <em>"No me siento español"</em>',
+      '<strong>Verbindung:</strong> „Bye Bye Spain" (Bild) = visuelle Entsprechung zum Zitat (<em>Cataluña es mi patria</em>)',
+      '<strong>Vokabular:</strong> <em>la estelada, la Diada, la autodeterminación, la patria</em>',
+    ] },
 
   /* ── FOLIE 3 · Aufgabe ─────────────────────────────────── */
   { type:'aufgabe', n:2,
@@ -489,7 +558,21 @@ const SLIDES = [
     refQuote:'"Me siento catalán y español…"',
     refAuthor:'Marc Marquéz',
     a1:'En la foto se ve una multitud con banderas españolas y catalanas. Un gran cartel dice <strong>"CATALUNYA ES ESPAÑA"</strong> —afirmando la unidad entre Cataluña y España. El ambiente parece organizado y político, probablemente una contramanifestación frente al independentismo.',
-    a2:'La foto muestra una concentración de personas que defienden la unidad de España y rechazan la independencia. Esto se relaciona con la cita de <strong>Marc Marquéz</strong>, famoso piloto de motos nacido en Cataluña, quien se siente tanto catalán como español y no tiene miedo a decirlo abiertamente (<em>"no tener pelos en la lengua"</em>). A diferencia de Sardà, Marquéz representa una <strong>identidad doble</strong> y un rechazo al independentismo. El contexto muestra que la sociedad catalana está <strong>profundamente dividida</strong>: no todos los catalanes quieren la independencia. Según encuestas, el apoyo a la independencia oscila en torno al 40–50%.' },
+    a2:'La foto muestra una concentración de personas que defienden la unidad de España y rechazan la independencia. Esto se relaciona con la cita de <strong>Marc Marquéz</strong>, famoso piloto de motos nacido en Cataluña, quien se siente tanto catalán como español y no tiene miedo a decirlo abiertamente (<em>"no tener pelos en la lengua"</em>). A diferencia de Sardà, Marquéz representa una <strong>identidad doble</strong> y un rechazo al independentismo. El contexto muestra que la sociedad catalana está <strong>profundamente dividida</strong>: no todos los catalanes quieren la independencia. Según encuestas, el apoyo a la independencia oscila en torno al 40–50%.',
+    h1:[
+      '<strong>Fahnen:</strong> Spanische (rot-gelb-rot) UND katalanische Fahnen (<em>senyera</em>) nebeneinander',
+      '<strong>Banner:</strong> „CATALUNYA ES ESPAÑA" → pro-spanisches, anti-independentista Statement',
+      '<strong>Menge:</strong> Groß, organisiert, friedlich → Gegendemonstration',
+      '<strong>Atmosphäre:</strong> politisch, ruhig — Kontrast zu radikalen Protesten',
+    ],
+    h2:[
+      '<strong>Thema:</strong> Debatte Einheit Spaniens vs. Unabhängigkeit Kataloniens',
+      '<strong>Marc Marquéz:</strong> Motorrad-Weltmeister aus <em>Cervera</em> (Katalonien) → bekannte Persönlichkeit',
+      '<strong>Doppelidentität:</strong> <em>catalán Y español</em> — für ihn kein Widerspruch',
+      '<strong>Redewendung:</strong> <em>no tener pelos en la lengua</em> = spricht offen, trotz kontroverser Position in Katalonien',
+      '<strong>Gesellschaft:</strong> ca. 40–50% pro vs. contra independencia → tiefe Spaltung',
+      '<strong>Vokabular:</strong> <em>la unidad de España, la identidad dual, la constitución española</em>',
+    ] },
 
   /* ── FOLIE 5 · Aufgabe ─────────────────────────────────── */
   { type:'aufgabe', n:3,
@@ -505,7 +588,21 @@ const SLIDES = [
     refQuote:'"…no pueden estudiar en su lengua materna…"',
     refAuthor:'Ana Losada',
     a1:'En la foto se ve un <strong>aula escolar</strong> desde la perspectiva de un alumno. Varios niños están sentados en filas mirando hacia delante, donde una profesora está de pie. Es una escena educativa cotidiana que podría representar cualquier colegio en España.',
-    a2:'La foto representa el contexto escolar en Cataluña, donde se debate la <strong>lengua de instrucción</strong>. Ana Losada, presidenta de la Asamblea por una Escuela Bilingüe, critica que los alumnos castellanohablantes no pueden estudiar en su lengua materna en los colegios catalanes. En Cataluña existe la <strong>"inmersión lingüística"</strong>: el catalán es la principal lengua de enseñanza. La cita defiende un sistema bilingüe con más espacio para el castellano. El debate refleja la tensión entre la <strong>normalización del catalán</strong> como lengua propia y el derecho de los hispanohablantes a estudiar en su lengua materna.' },
+    a2:'La foto representa el contexto escolar en Cataluña, donde se debate la <strong>lengua de instrucción</strong>. Ana Losada, presidenta de la Asamblea por una Escuela Bilingüe, critica que los alumnos castellanohablantes no pueden estudiar en su lengua materna en los colegios catalanes. En Cataluña existe la <strong>"inmersión lingüística"</strong>: el catalán es la principal lengua de enseñanza. La cita defiende un sistema bilingüe con más espacio para el castellano. El debate refleja la tensión entre la <strong>normalización del catalán</strong> como lengua propia y el derecho de los hispanohablantes a estudiar en su lengua materna.',
+    h1:[
+      '<strong>Perspektive:</strong> Von hinten → man sieht Schüler·innen, nicht deren Gesichter',
+      '<strong>Personen:</strong> Mehrere Kinder in Reihen sitzend, Lehrerin vorne stehend',
+      '<strong>Ort:</strong> Klassenzimmer (<em>el aula</em>) → repräsentiert katalanische Schulrealität',
+      '<strong>Atmosphäre:</strong> Normal, alltäglich → symbolisiert das System, nicht einen Einzelfall',
+    ],
+    h2:[
+      '<strong>Thema:</strong> Sprachpolitik in katalanischen Schulen (<em>inmersión lingüística</em>)',
+      '<strong>System:</strong> Katalanisch = Hauptunterrichtssprache; Kastilisch hat sekundäre Rolle',
+      '<strong>Ana Losada:</strong> Präsidentin der <em>Asamblea por una Escuela Bilingüe</em> → fordert Gleichberechtigung beider Sprachen',
+      '<strong>Problem:</strong> Kinder aus anderen Teilen Spaniens können nicht in ihrer Muttersprache lernen',
+      '<strong>Gegenargument:</strong> Katalanisch als Minderheitssprache braucht institutionellen Schutz',
+      '<strong>Vokabular:</strong> <em>la lengua materna, el castellano, la inmersión lingüística, el bilingüismo</em>',
+    ] },
 
   /* ── FOLIE 7 · Aufgabe ─────────────────────────────────── */
   { type:'aufgabe', n:4,
@@ -524,7 +621,22 @@ const SLIDES = [
     refQuote:'"Soy y me siento catalán…"',
     refAuthor:'Gerard Piqué',
     a1:'En la foto se ven <strong>aficionados del FC Barcelona</strong> en un estadio. Sostienen Esteladas —banderas del movimiento independentista catalán— y un gran cartel con la palabra <strong>"LLIBERTAT"</strong>, que significa "libertad" en catalán. La escena mezcla deporte y política de forma clara.',
-    a2:'La foto ilustra cómo el <strong>deporte y la política se entrelazan</strong> en Cataluña. El FC Barcelona es históricamente un símbolo de la identidad y resistencia catalanas. La palabra "llibertat" es un lema central del movimiento independentista. La cita de <strong>Gerard Piqué</strong>, exjugador del Barça y de la selección española, refleja un orgullo catalán claro. Aunque representó a España internacionalmente, se identifica como catalán y muestra solidaridad con su gente. El contexto es el año 2017, cuando la tensión política alcanzó su punto álgido con el referéndum de independencia.' },
+    a2:'La foto ilustra cómo el <strong>deporte y la política se entrelazan</strong> en Cataluña. El FC Barcelona es históricamente un símbolo de la identidad y resistencia catalanas. La palabra "llibertat" es un lema central del movimiento independentista. La cita de <strong>Gerard Piqué</strong>, exjugador del Barça y de la selección española, refleja un orgullo catalán claro. Aunque representó a España internacionalmente, se identifica como catalán y muestra solidaridad con su gente. El contexto es el año 2017, cuando la tensión política alcanzó su punto álgido con el referéndum de independencia.',
+    h1:[
+      '<strong>Ort:</strong> Fußballstadion (<em>probablemente el Camp Nou</em>, Barcelona)',
+      '<strong>Fahnen:</strong> Viele <em>Esteladas</em> → bewusstes politisches Statement im Stadion',
+      '<strong>Banner:</strong> „LLIBERTAT" = Freiheit auf Katalanisch → zentrales Symbol der Bewegung',
+      '<strong>Mischung:</strong> Sport + Politik → für FCB-Fans untrennbar verbunden',
+      '<strong>Atmosphäre:</strong> Leidenschaftlich, emotional, politisch',
+    ],
+    h2:[
+      '<strong>FC Barcelona:</strong> Historisch Symbol katalanischer Identität und Widerstand gegen Francos Diktatur',
+      '<strong>Llibertat:</strong> <em>libertad</em> auf Katalanisch → Kernforderung der Unabhängigkeitsbewegung',
+      '<strong>Piqué:</strong> Ex-Barça-Spieler UND Ex-Spieler der <em>selección española</em> → Spannungsfeld zweier Identitäten',
+      '<strong>Position:</strong> Trotzdem klar katalanisch → <em>orgulloso de la gente de Cataluña</em>',
+      '<strong>Grammatik:</strong> <em>estar orgulloso/a de</em> + Substantiv = „stolz auf etw. sein" → für Abitur merken!',
+      '<strong>Vokabular:</strong> <em>el fútbol y la política, la identidad catalana, el Camp Nou, la resistencia</em>',
+    ] },
 
   /* ── FOLIE 9 · Aufgabe ─────────────────────────────────── */
   { type:'aufgabe', n:5,
@@ -540,7 +652,21 @@ const SLIDES = [
     refQuote:'"La cultura y la lengua catalana forman parte de mi identidad."',
     refAuthor:'Enrique, 14 años',
     a1:'En la foto se ve una <strong>gran manifestación</strong> con una Estelada que lleva la inscripción <strong>"I HAVE A DREAM"</strong> —una referencia al famoso discurso de Martin Luther King. La multitud parece comprometida y emotiva. El ambiente es el de una concentración política masiva.',
-    a2:'La referencia al discurso "I Have a Dream" de Martin Luther King asocia el independentismo catalán con el ideal de <strong>libertad y autodeterminación</strong>. Igual que MLK soñaba con igualdad, los independentistas sueñan con una Cataluña soberana. La cita de <strong>Enrique</strong>, un alumno de solo 14 años, muestra que el sentimiento de identidad catalana está arraigado también en la <strong>juventud</strong>. Él destaca la lengua y la cultura como pilares de su identidad —factores que también impulsan la demanda de independencia. El contexto: en 2017, el movimiento movilizó a amplias capas de la sociedad, incluidos jóvenes.' },
+    a2:'La referencia al discurso "I Have a Dream" de Martin Luther King asocia el independentismo catalán con el ideal de <strong>libertad y autodeterminación</strong>. Igual que MLK soñaba con igualdad, los independentistas sueñan con una Cataluña soberana. La cita de <strong>Enrique</strong>, un alumno de solo 14 años, muestra que el sentimiento de identidad catalana está arraigado también en la <strong>juventud</strong>. Él destaca la lengua y la cultura como pilares de su identidad —factores que también impulsan la demanda de independencia. El contexto: en 2017, el movimiento movilizó a amplias capas de la sociedad, incluidos jóvenes.',
+    h1:[
+      '<strong>Hauptelement:</strong> Estelada mit Aufschrift „I HAVE A DREAM" → kombiniert Unabhängigkeitssymbol + Idealismus',
+      '<strong>Referenz:</strong> Martin Luther King (1963) → Freiheit, Traum, Selbstbestimmung',
+      '<strong>Menge:</strong> Massendemonstration → breite gesellschaftliche Unterstützung',
+      '<strong>Atmosphäre:</strong> Hoffnungsvoll, emotional, idealistisch',
+    ],
+    h2:[
+      '<strong>Anspielung MLK:</strong> Gleichsetzung Unabhängigkeitstraum = Freiheitstraum → emotionale Aufladung',
+      '<strong>Enrique (14 Jahre):</strong> Zeigt, dass Identitätsgefühl bereits in der <em>Jugend</em> tief verankert ist',
+      '<strong>Pfeiler der Identität:</strong> <em>la lengua y la cultura catalana</em> → nicht nur Politik, sondern Kultur',
+      '<strong>Generationenfrage:</strong> Junge Menschen engagieren sich → Bewegung hat Zukunft',
+      '<strong>2017-Kontext:</strong> Referéndum, Verhaftung von Politikern, Reaktion Madrids → Eskalation',
+      '<strong>Vokabular:</strong> <em>el sueño, la autodeterminación, la identidad, la generación joven</em>',
+    ] },
 
   /* ── FOLIE 11 · Aufgabe ────────────────────────────────── */
   { type:'aufgabe', n:6,
@@ -562,7 +688,22 @@ const SLIDES = [
     refQuote:'"Cataluña sería una nación maravillosa, pequeña, pero muy fuerte."',
     refAuthor:'Dyango',
     a1:'En la foto se ven personas <strong>vestidas de negro</strong>, con capuchones y mascarillas que impiden identificarlas. Están <strong>quemando una bandera española</strong> en plena calle. Algunas levantan el puño en señal de protesta. La escena es violenta y radical.',
-    a2:'Quemar la bandera española es un acto simbólico de <strong>rechazo total al Estado español</strong>. Esta acción representa el ala más radical del movimiento independentista, que va más allá de las manifestaciones pacíficas. La cita del cantante <strong>Dyango</strong> expresa un sueño independentista: una Cataluña soberana, pequeña pero poderosa. Sin embargo, estos métodos violentos contrastan con la <strong>mayoría pacífica</strong> del movimiento. El contexto muestra que dentro del independentismo existen diferentes corrientes —desde partidos parlamentarios hasta grupos radicales—, lo que complica el diálogo con el Estado español.' },
+    a2:'Quemar la bandera española es un acto simbólico de <strong>rechazo total al Estado español</strong>. Esta acción representa el ala más radical del movimiento independentista, que va más allá de las manifestaciones pacíficas. La cita del cantante <strong>Dyango</strong> expresa un sueño independentista: una Cataluña soberana, pequeña pero poderosa. Sin embargo, estos métodos violentos contrastan con la <strong>mayoría pacífica</strong> del movimiento. El contexto muestra que dentro del independentismo existen diferentes corrientes —desde partidos parlamentarios hasta grupos radicales—, lo que complica el diálogo con el Estado español.',
+    h1:[
+      '<strong>Personen:</strong> Vermummt (Kapuzen + Masken) → unidentifizierbar, anonym',
+      '<strong>Aktion:</strong> <em>quemar la bandera española</em> → symbolische Zerstörung des span. Staates',
+      '<strong>Gesten:</strong> Fäuste heben (<em>levantar el puño</em>) → Widerstand, Wut, Protest',
+      '<strong>Kleidung:</strong> Schwarz → radikale politische Ästhetik',
+      '<strong>Atmosphäre:</strong> Gewaltsam, bedrohlich, radikal — Kontrast zu anderen Folien',
+    ],
+    h2:[
+      '<strong>Symbolik:</strong> Fahnenverbrennung = totale Ablehnung Spaniens → stärkstes mögliches Symbol',
+      '<strong>Radikaler Flügel:</strong> Minderheit der Bewegung, aber medial präsent → schadet dem Bild des Independentismo',
+      '<strong>Kontrast:</strong> Mehrheit der Bewegung ist <em>pacífica</em> (Folien 1, 5, 7) → wichtige Nuancierung',
+      '<strong>Dyango:</strong> Sänger, kein Politiker → zeigt: Unabhängigkeitswunsch in breiten Gesellschaftsschichten',
+      '<strong>Zitat:</strong> <em>"pequeña, pero muy fuerte"</em> → idealisierte Vorstellung eines lebensfähigen Kleinstaats',
+      '<strong>Vokabular:</strong> <em>la violencia política, el radicalismo, la soberanía, el independentismo</em>',
+    ] },
 
   /* ── FOLIE 13 · Aufgabe ────────────────────────────────── */
   { type:'aufgabe', n:7,
@@ -578,7 +719,21 @@ const SLIDES = [
     refQuote:'"…pero no quiero la independencia."',
     refAuthor:'Persona anónima en Facebook',
     a1:'En la foto se ve una <strong>gran concentración</strong> con banderas españolas y catalanas. Una persona sostiene un cartel: <strong>"PROUD TO BE CATALAN AND SPANISH"</strong> —orgulloso de ser catalán y español a la vez. Los símbolos de ambas identidades conviven en la misma imagen.',
-    a2:'La foto y la cita representan a aquellos catalanes que tienen una <strong>identidad doble</strong> y rechazan la independencia. El cartel muestra que para muchos las dos identidades son compatibles. La persona anónima se identifica cultural y lingüísticamente con Cataluña —lengua, gastronomía, cultura—, pero no quiere la independencia. Esto es importante: <strong>no todos los catalanistas son independentistas</strong>. La sociedad catalana está profundamente dividida en esta cuestión. La foto y el cita ilustran la postura de quienes quieren más autonomía pero dentro de España.' },
+    a2:'La foto y la cita representan a aquellos catalanes que tienen una <strong>identidad doble</strong> y rechazan la independencia. El cartel muestra que para muchos las dos identidades son compatibles. La persona anónima se identifica cultural y lingüísticamente con Cataluña —lengua, gastronomía, cultura—, pero no quiere la independencia. Esto es importante: <strong>no todos los catalanistas son independentistas</strong>. La sociedad catalana está profundamente dividida en esta cuestión. La foto y el cita ilustran la postura de quienes quieren más autonomía pero dentro de España.',
+    h1:[
+      '<strong>Fahnen:</strong> Spanische UND katalanische Fahnen nebeneinander → Koexistenz beider Identitäten',
+      '<strong>Schild:</strong> „PROUD TO BE CATALAN AND SPANISH" → explizite Doppelidentität',
+      '<strong>Menge:</strong> Groß, divers → breite Bevölkerungsschicht',
+      '<strong>Atmosphäre:</strong> Stolz, positiv, nicht konfrontativ — Kontrast zu Folie 6',
+    ],
+    h2:[
+      '<strong>Kernaussage:</strong> Katalanisch sein ≠ Independentismo → wichtige Nuancierung!',
+      '<strong>Zitat:</strong> Kultur + Sprache + Gastronomie (<em>crema catalana</em>) = katalanische Identität OHNE Unabhängigkeitswunsch',
+      '<strong>Gesellschaft:</strong> Tief gespalten → ca. 40–50% pro vs. contra independencia',
+      '<strong>Mögliche Lösung:</strong> Mehr Autonomie statt Unabhängigkeit → Position für <em>opinión</em>',
+      '<strong>Vergleich:</strong> Gegensatz zu Sardà (Folie 1) und Enrique (Folie 5) → verschiedene Positionen',
+      '<strong>Vokabular:</strong> <em>la unidad, la identidad cultural, la autonomía, la sociedad dividida</em>',
+    ] },
 
   /* ── FOLIE 15 · Aufgabe ────────────────────────────────── */
   { type:'aufgabe', n:8,
@@ -594,7 +749,22 @@ const SLIDES = [
     refQuote:'"…deberíamos aprender las dos lenguas en la escuela."',
     refAuthor:'Nuria',
     a1:'En la foto se ve una <strong>clase de primaria</strong>. En primer plano, una niña levanta la mano para participar. Los alumnos están sentados en pupitres y la profesora está al fondo señalando a un alumno. El ambiente es activo y participativo.',
-    a2:'La foto muestra el contexto educativo donde se produce el debate sobre las lenguas en Cataluña. Nuria, una chica catalana, defiende el aprendizaje de <strong>las dos lenguas —catalán y castellano—</strong> en la escuela, ya que las considera igualmente importantes. Esto se relaciona con la política de <strong>"inmersión lingüística"</strong>: en Cataluña el catalán es la lengua vehicular de enseñanza y el castellano tiene un papel secundario. Los partidarios argumentan que protege una <strong>lengua minoritaria</strong>; los críticos, como Ana Losada (folio 3), piden más espacio para el castellano. La foto con niños pequeños subraya que este debate afecta desde la primera infancia y tiene consecuencias a largo plazo para la sociedad catalana.' },
+    a2:'La foto muestra el contexto educativo donde se produce el debate sobre las lenguas en Cataluña. Nuria, una chica catalana, defiende el aprendizaje de <strong>las dos lenguas —catalán y castellano—</strong> en la escuela, ya que las considera igualmente importantes. Esto se relaciona con la política de <strong>"inmersión lingüística"</strong>: en Cataluña el catalán es la lengua vehicular de enseñanza y el castellano tiene un papel secundario. Los partidarios argumentan que protege una <strong>lengua minoritaria</strong>; los críticos, como Ana Losada (folio 3), piden más espacio para el castellano. La foto con niños pequeños subraya que este debate afecda desde la primera infancia y tiene consecuencias a largo plazo para la sociedad catalana.',
+    h1:[
+      '<strong>Personen:</strong> Grundschulkinder (<em>alumnos de primaria</em>) + Lehrerin hinten',
+      '<strong>Aktion:</strong> Kind meldet sich → aktive Beteiligung, engagiertes Lernklima',
+      '<strong>Perspektive:</strong> Von schräg hinten → Blick in die Klasse hinein',
+      '<strong>Atmosphäre:</strong> Normal, alltäglich, positiv → repräsentiert Bildungsrealität, keine Ausnahme',
+    ],
+    h2:[
+      '<strong>Thema:</strong> <em>Bilingüismo</em> in der Schule — Katalanisch vs. Kastilisch als Unterrichtssprache',
+      '<strong>System:</strong> <em>Inmersión lingüística</em> → Katalanisch = Hauptsprache; Kastilisch = sekundär',
+      '<strong>Nuria:</strong> Befürwortet beide Sprachen gleichberechtigt → ausgewogene Position',
+      '<strong>Pro Inmersión:</strong> Schützt Katalanisch als Minderheits- und Regionalsprache',
+      '<strong>Contra Inmersión:</strong> Ana Losada (Folie 3) → kastilischsprachige Kinder benachteiligt',
+      '<strong>Verbindung Folien 3+8:</strong> Zwei Seiten derselben Debatte → gut für <em>opinión</em> nutzen',
+      '<strong>Vokabular:</strong> <em>la lengua vehicular, la igualdad lingüística, el bilingüismo, la educación</em>',
+    ] },
 ];
 
 /* ═══════════════════════════════════════════════════════ STATE */
@@ -701,7 +871,7 @@ function renderLoesung(s) {
       <div class="loesung-head a1">
         <span class="loesung-head-icon">📸</span>
         <span class="loesung-head-title">Aufgabe 1</span>
-        <span class="loesung-head-sub">— Beschreibung der Foto</span>
+        <span class="loesung-head-sub">— Descripción de la foto</span>
       </div>
       <div class="loesung-body">${s.a1}</div>
     </div>
@@ -713,6 +883,21 @@ function renderLoesung(s) {
         <span class="loesung-head-sub">— Tema, Kontext &amp; Verbindung zum Zitat</span>
       </div>
       <div class="loesung-body">${s.a2}</div>
+    </div>
+
+    <div class="hints-wrap">
+      <div class="hints-box">
+        <div class="hints-head h1">📸 Was muss ich für Aufgabe 1 nennen?</div>
+        <ul class="hints-list">
+          ${s.h1.map(h => `<li class="h1-item">${h}</li>`).join('')}
+        </ul>
+      </div>
+      <div class="hints-box">
+        <div class="hints-head h2">💬 Was muss ich für Aufgabe 2 nennen?</div>
+        <ul class="hints-list">
+          ${s.h2.map(h => `<li class="h2-item">${h}</li>`).join('')}
+        </ul>
+      </div>
     </div>`;
 }
 
