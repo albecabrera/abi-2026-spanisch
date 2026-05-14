@@ -693,6 +693,15 @@
       margin-top: .18em;
       white-space: nowrap;
     }
+    /* ── WISSENSBLOCK TEMA-1 OVERRIDE (red) ────────────────────────────── */
+    .card[data-n="1"] .wissensblock { border-color: rgba(239,83,80,.25); }
+    .card[data-n="1"] .wb-head { background: rgba(239,83,80,.07); border-bottom-color: rgba(239,83,80,.15); }
+    .card[data-n="1"] .wb-body { background: rgba(239,83,80,.03); }
+    .card[data-n="1"] .wb-head-title,
+    .card[data-n="1"] .wb-chev,
+    .card[data-n="1"] .tl-yr,
+    .card[data-n="1"] .scard-val { color: var(--c1); }
+
     /* ── WISSENSBLOCK TEMA-2 OVERRIDE (orange) ─────────────────────────── */
     .card[data-n="2"] .wissensblock { border-color: rgba(251,140,0,.25); }
     .card[data-n="2"] .wb-head { background: rgba(251,140,0,.07); border-bottom-color: rgba(251,140,0,.15); }
@@ -814,10 +823,6 @@
     </div>
     <div class="cb">
       <div class="cb-inner">
-        <div class="note">
-          <strong>Hinweis:</strong> Dieses Thema dient als Beispiel-Ponencia. Die detaillierte Gliederung folgt dem bereitgestellten Unterrichtsmaterial (<em>véase ejemplo</em>).
-        </div>
-
         <div class="section-title">Thematische Schwerpunkte</div>
         <ul class="subs">
           <li>Situation der <strong>illegalen Einwanderung</strong> nach Spanien — Routen, Zahlen, Herkunftsländer</li>
@@ -837,12 +842,202 @@
           <span class="kwtag">España multicultural</span>
           <span class="kwtag">la frontera</span>
           <span class="kwtag">el racismo / la discriminación</span>
+          <span class="kwtag">la patera / el cayuco</span>
+          <span class="kwtag">el asilo político</span>
+          <span class="kwtag">Frontex</span>
+          <span class="kwtag">la xenofobia</span>
         </div>
 
         <div class="opinion">
           <div class="op-label">⟶ Opinión</div>
-          <p>Meinungsäußerung zu einem allgemeinen oder spezifischen Aspekt des Themas — inhaltlich und sprachlich vorbereiten!</p>
+          <p>Meinungsäußerung zu einem allgemeinen oder spezifischen Aspekt des Themas — z. B. zur EU-Migrationspolitik oder zur Integration.</p>
         </div>
+
+        <!-- ══ WISSENSBLOCK ════════════════════════════════════════════════ -->
+        <div class="wissensblock">
+          <div class="wb-head" onclick="toggleWB(this)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            <span class="wb-head-title">Información de fondo — Inmigración &amp; España multicultural para el examen oral (según NRW)</span>
+            <svg class="wb-chev" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="wb-body">
+
+            <!-- 1. CIFRAS CLAVE -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">📊 Cifras clave — Inmigración en España</div>
+              <div class="stats-grid">
+                <div class="scard"><div class="scard-val">5,6 mill.</div><div class="scard-lbl">extranjeros en España (2023)</div></div>
+                <div class="scard"><div class="scard-val">12 %</div><div class="scard-lbl">de la población total española</div></div>
+                <div class="scard"><div class="scard-val">~65.000</div><div class="scard-lbl">llegadas irregulares en 2023</div></div>
+                <div class="scard"><div class="scard-val">3.ª UE</div><div class="scard-lbl">país receptor de inmigrantes</div></div>
+                <div class="scard"><div class="scard-val">Canarias</div><div class="scard-lbl">principal punto de entrada irregular</div></div>
+                <div class="scard"><div class="scard-val">&gt;2.000</div><div class="scard-lbl">muertes en rutas hacia España (2023)</div></div>
+              </div>
+            </div>
+
+            <!-- 2. RUTAS MIGRATORIAS -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">🗺 Rutas migratorias hacia España</div>
+              <div class="tl">
+                <div class="tl-row">
+                  <span class="tl-yr">Ruta 1</span>
+                  <span class="tl-txt"><strong>Ruta Atlántica</strong> (África Occidental → Canarias) — la más larga y peligrosa. Origen: Senegal, Mali, Guinea, Mauritania. Miles mueren en el Atlántico.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">Ruta 2</span>
+                  <span class="tl-txt"><strong>Ruta del Mediterráneo Occidental</strong> (Marruecos, Argelia → Ceuta, Melilla, Almería) — cruce en <em>patera</em>, a nado, o asalto a las vallas de Ceuta y Melilla.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">Ruta 3</span>
+                  <span class="tl-txt"><strong>Ruta Central del Mediterráneo</strong> (Libia, Túnez → Italia → España) — la más mortífera en el Mediterráneo; muchos continúan a España por tierra.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">patera</span>
+                  <span class="tl-txt">La <strong>patera</strong> (barca pequeña) o <strong>cayuco</strong> (canoa artesanal) — embarcaciones precarias, sobrecargadas, sin equipos de seguridad ni chalecos salvavidas.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">push/pull</span>
+                  <span class="tl-txt"><strong>Factores de expulsión</strong> (<em>push</em>): guerras, pobreza extrema, cambio climático. <strong>Factores de atracción</strong> (<em>pull</em>): trabajo, seguridad, familia ya instalada en España.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. VIDA DE LOS INMIGRANTES -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">🏠 Vida en España — Desafíos vs. Aportaciones</div>
+              <div class="pc-grid">
+                <div class="pc-box">
+                  <div class="pc-hd con">Desafíos de los inmigrantes</div>
+                  <ul class="pc-ul con">
+                    <li>Barrera lingüística → aprender español (y a veces catalán)</li>
+                    <li>Discriminación racial y xenofobia</li>
+                    <li>Acceso limitado al mercado laboral formal</li>
+                    <li>Vivienda precaria, hacinamiento, barrios segregados</li>
+                    <li>Sin papeles → miedo constante a la deportación</li>
+                    <li>Lejanía de la familia → soledad, nostalgia</li>
+                    <li>Diferencias culturales y religiosas mal gestionadas</li>
+                  </ul>
+                </div>
+                <div class="pc-box">
+                  <div class="pc-hd pro">Aportaciones de los inmigrantes</div>
+                  <ul class="pc-ul pro">
+                    <li>Enriquecimiento cultural → gastronomía, música, idiomas</li>
+                    <li>Contribución económica: pagan impuestos y cotizaciones</li>
+                    <li>Cubren puestos esenciales: agricultura, hostelería, limpieza</li>
+                    <li>Frena el envejecimiento demográfico de España</li>
+                    <li>Diversidad → creatividad y apertura de miras</li>
+                    <li>Muchos son altamente cualificados (médicos, ingenieros)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. POLÍTICA MIGRATORIA -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">📅 Política migratoria — España y la UE</div>
+              <div class="tl">
+                <div class="tl-row">
+                  <span class="tl-yr">2000</span>
+                  <span class="tl-txt"><strong>Ley de Extranjería</strong> (LO 4/2000) — regula la entrada, permanencia y derechos de los extranjeros en España.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">2004</span>
+                  <span class="tl-txt"><strong>Frontex</strong> — Agencia Europea de la Guardia de Fronteras y Costas → vigila y controla las fronteras exteriores de la UE.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">2015</span>
+                  <span class="tl-txt"><strong>Crisis migratoria europea</strong> → más de 1 millón de personas cruzan el Mediterráneo. Debate sobre cuotas de reparto entre los estados miembros.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">2021</span>
+                  <span class="tl-txt"><strong>Crisis en Ceuta</strong> — 10.000 personas entran en un solo día desde Marruecos. Tensión diplomática entre España y Marruecos.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">2023</span>
+                  <span class="tl-txt"><strong>Nuevo Pacto de Migración y Asilo (UE)</strong> — reforma del sistema europeo de asilo: distribución solidaria y procedimientos más rápidos en frontera exterior.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">crítica</span>
+                  <span class="tl-txt">ONGs critican la <strong>"externalización" de fronteras</strong> → acuerdos con Marruecos, Turquía, Libia para frenar flujos, con frecuentes vulneraciones de derechos humanos.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5. A FAVOR / EN CONTRA -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">⚖️ La inmigración — Argumentos para la opinión</div>
+              <div class="pc-grid">
+                <div class="pc-box">
+                  <div class="pc-hd pro">A favor de la inmigración</div>
+                  <ul class="pc-ul pro">
+                    <li>España envejece → necesita inmigrantes para sostener el sistema de pensiones</li>
+                    <li>Enriquecimiento cultural → sociedad multicultural más abierta</li>
+                    <li>Contribución económica — sin ellos, sectores clave colapsarían</li>
+                    <li>Muchos huyen de guerras o pobreza → deber moral y legal de acogerlos</li>
+                    <li>España también emigró en masa (años 60): empatía histórica</li>
+                  </ul>
+                </div>
+                <div class="pc-box">
+                  <div class="pc-hd con">Preocupaciones / en contra</div>
+                  <ul class="pc-ul con">
+                    <li>Presión sobre servicios públicos: hospitales, colegios, vivienda</li>
+                    <li>Tensiones sociales en barrios con alta concentración de inmigrantes</li>
+                    <li>Dificultad de integración sin políticas eficaces</li>
+                    <li>Sentimiento de inseguridad en parte de la población</li>
+                    <li>Inmigración irregular difícil de controlar → debate sobre orden público</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- 6. OPINIÓN MODELO -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">💬 Opinión modelo — Para el examen oral</div>
+              <div class="tl">
+                <div class="tl-row">
+                  <span class="tl-yr">tesis</span>
+                  <span class="tl-txt"><strong>La inmigración es una realidad irreversible</strong> — el verdadero reto no es la llegada, sino construir una convivencia real y justa.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">arg. 1</span>
+                  <span class="tl-txt">Las personas no arriesgan su vida en una patera por capricho → <strong>huyen de guerras, hambre o pobreza extrema</strong>. La responsabilidad de acogerlos es global.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">arg. 2</span>
+                  <span class="tl-txt">España necesita inmigración: <strong>demografía envejecida, sectores clave sin mano de obra</strong> → sin inmigrantes, el sistema económico y de pensiones es insostenible.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">arg. 3</span>
+                  <span class="tl-txt">La diversidad cultural enriquece → pero solo si hay <strong>integración real</strong>: acceso a educación, idioma y derechos laborales — no solo tolerancia superficial.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">cierre</span>
+                  <span class="tl-txt">Europa y España necesitan <strong>políticas migratorias humanas y coordinadas</strong>: no muros, sino canales legales, inversión en los países de origen y programas de integración efectivos.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 7. NRW ANFORDERUNGEN -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">🎓 Requisitos NRW — Prueba oral de Bachillerato (Spanisch)</div>
+              <div class="nrw-box">
+                <div style="font-size:.78rem; color:var(--txt2); margin-bottom:.5rem">Según las <strong style="color:var(--gold)">Vorgaben NRW 2026</strong> — Tema 1: <em>Vivir y convivir en una España multicultural</em></div>
+                <div class="nrw-rows">
+                  <div class="nrw-row"><span class="nrw-tag">Saber</span>Situación de la inmigración en España: cifras actuales, principales países de origen, rutas de entrada irregulares.</div>
+                  <div class="nrw-row"><span class="nrw-tag">Saber</span>Rutas migratorias: ruta atlántica (Canarias), ruta del Mediterráneo occidental (Ceuta/Melilla), peligros y muertes en el mar.</div>
+                  <div class="nrw-row"><span class="nrw-tag">Saber</span>Vida cotidiana de los inmigrantes: desafíos de integración (idioma, trabajo, discriminación) y aportaciones a la sociedad española.</div>
+                  <div class="nrw-row"><span class="nrw-tag">Saber</span>Política migratoria española (Ley de Extranjería) y europea (Frontex, Pacto de Migración): medidas, críticas, externalización de fronteras.</div>
+                  <div class="nrw-row"><span class="nrw-tag">Saber</span>La <em>convivencia</em> y la <em>diversidad cultural</em>: cómo es la vida en una España multicultural, conflictos y oportunidades.</div>
+                  <div class="nrw-row"><span class="nrw-tag">Vocab.</span><em>la inmigración ilegal · la patera · el cayuco · la integración · la convivencia · la diversidad · la xenofobia · la discriminación · el asilo · Frontex</em></div>
+                  <div class="nrw-row"><span class="nrw-tag">Opinión</span>Expresar y argumentar posición sobre la inmigración irregular y/o la política migratoria europea.</div>
+                  <div class="nrw-row"><span class="nrw-tag">NRW</span>15 min · Referat + Handout con verbos · Meinungsäußerung al final · Freier Vortrag (Karteikarten erlaubt).</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div><!-- /wissensblock -->
+
       </div>
     </div>
   </article>
