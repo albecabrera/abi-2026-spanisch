@@ -711,6 +711,15 @@
     .card[data-n="2"] .tl-yr,
     .card[data-n="2"] .scard-val { color: var(--c2); }
 
+    /* ── WISSENSBLOCK TEMA-3 OVERRIDE (green) ──────────────────────────── */
+    .card[data-n="3"] .wissensblock { border-color: rgba(67,160,71,.25); }
+    .card[data-n="3"] .wb-head { background: rgba(67,160,71,.07); border-bottom-color: rgba(67,160,71,.15); }
+    .card[data-n="3"] .wb-body { background: rgba(67,160,71,.03); }
+    .card[data-n="3"] .wb-head-title,
+    .card[data-n="3"] .wb-chev,
+    .card[data-n="3"] .tl-yr,
+    .card[data-n="3"] .scard-val { color: var(--c3); }
+
     /* ── FOOTER ─────────────────────────────────────────────────────────── */
     footer {
       text-align: center;
@@ -1332,6 +1341,180 @@
           <div class="op-label">⟶ Opinión</div>
           <p>Meinungsäußerung zu einem allgemeinen oder spezifischen Aspekt des Themas — z. B. zur Ecotasa als Lösung für Overtourism.</p>
         </div>
+
+        <!-- ══ WISSENSBLOCK ════════════════════════════════════════════════ -->
+        <div class="wissensblock">
+          <div class="wb-head" onclick="toggleWB(this)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            <span class="wb-head-title">Información de fondo — El turismo en España para el examen oral (según NRW)</span>
+            <svg class="wb-chev" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="wb-body">
+
+            <!-- 1. CIFRAS CLAVE -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">📊 Cifras clave — El turismo en España</div>
+              <div class="stats-grid">
+                <div class="scard"><div class="scard-val">75 mill.</div><div class="scard-lbl">turistas recibidos en 2016</div></div>
+                <div class="scard"><div class="scard-val">92 %</div><div class="scard-lbl">concentrado en solo 6 comunidades</div></div>
+                <div class="scard"><div class="scard-val">6 CCAA</div><div class="scard-lbl">Cataluña, Baleares, Canarias, Madrid, C. Valenciana, Andalucía</div></div>
+                <div class="scard"><div class="scard-val">86,7 %</div><div class="scard-lbl">de barceloneses reconocen que el turismo es beneficioso (2016)</div></div>
+                <div class="scard"><div class="scard-val">40,3 %</div><div class="scard-lbl">de los propios turistas dice que hay demasiada gente (Barcelona)</div></div>
+                <div class="scard"><div class="scard-val">1.ª preoc.</div><div class="scard-lbl">el turismo fue la principal preocupación de los barceloneses en 2016</div></div>
+              </div>
+            </div>
+
+            <!-- 2. VENTAJAS VS DESVENTAJAS -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">⚖️ Ventajas vs. Desventajas del turismo</div>
+              <div class="pc-grid">
+                <div class="pc-box">
+                  <div class="pc-hd pro">Ventajas</div>
+                  <ul class="pc-ul pro">
+                    <li><strong>Impulsa la economía</strong> regional</li>
+                    <li>Crea muchos <strong>puestos de trabajo</strong> (gastronomía, hoteles, construcción)</li>
+                    <li>Es una <strong>fuente de ingresos</strong> muy importante para algunas regiones</li>
+                    <li>Trae <strong>prosperidad</strong> a regiones como Baleares o Canarias</li>
+                    <li>Fomenta el <strong>intercambio intercultural</strong></li>
+                    <li>Se aprenden culturas y costumbres diferentes → más tolerancia y respeto</li>
+                    <li><strong>Enriquecimiento personal</strong>: nuevas experiencias, nueva gente, diversión</li>
+                  </ul>
+                </div>
+                <div class="pc-box">
+                  <div class="pc-hd con">Desventajas</div>
+                  <ul class="pc-ul con">
+                    <li><strong>Sube el alquiler</strong> → falta de viviendas para los residentes</li>
+                    <li>Mucho <strong>ruido, tráfico, vandalismo</strong></li>
+                    <li>Destrucción de la <strong>individualidad de los barrios</strong></li>
+                    <li>Dependencia económica de la <strong>temporada alta</strong></li>
+                    <li><strong>Contaminación</strong> por avión, coche, crucero</li>
+                    <li>Destrucción del <strong>paisaje</strong> (hoteles grandes en la costa)</li>
+                    <li><strong>Pérdida de culturas y costumbres</strong> locales</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. MASAS VS SOSTENIBLE -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">🌿 Turismo de masas vs. Turismo sostenible</div>
+              <div class="pc-grid">
+                <div class="pc-box">
+                  <div class="pc-hd con">Turismo de masas</div>
+                  <ul class="pc-ul con">
+                    <li>Hoteles grandes en toda la costa</li>
+                    <li>Solo activo en la <strong>temporada alta</strong></li>
+                    <li>Destruye el paisaje y la naturaleza</li>
+                    <li>Gran impacto ambiental (cruceros, vuelos)</li>
+                  </ul>
+                </div>
+                <div class="pc-box">
+                  <div class="pc-hd pro">Turismo sostenible / ecoturismo</div>
+                  <ul class="pc-ul pro">
+                    <li>Respeta el paisaje y la naturaleza</li>
+                    <li>Activo <strong>durante todo el año</strong></li>
+                    <li>Recicla la basura, usa energía renovable</li>
+                    <li>Respeta las culturas y costumbres locales</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. CASO BARCELONA -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">🏙 Caso: Barcelona y la masificación</div>
+              <div class="tl">
+                <div class="tl-row">
+                  <span class="tl-yr">Dato</span>
+                  <span class="tl-txt">2016: el turismo se convirtió en la <strong>principal preocupación de los barceloneses</strong> según el barómetro del Ayuntamiento, aunque el 86,7% reconoce que es beneficioso. El <strong>40,3% de los propios turistas</strong> dice que hay demasiada gente.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">Medidas</span>
+                  <span class="tl-txt">El Ayuntamiento <strong>prohibió la construcción de nuevos hoteles</strong> en el centro, reguló los pisos vacacionales, controló las licencias hoteleras y puso en marcha servicios especiales de transporte en La Barceloneta.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">Protesta</span>
+                  <span class="tl-txt">Manifestaciones en el barrio de Gràcia y cerca del parque Güell. Pintadas: <em>"Estáis destrozando Barcelona. Turistas, marchaos a casa"</em>.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5. CASO MALLORCA -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">🏖 Caso: El "turista basura" alemán en Mallorca</div>
+              <div class="tl">
+                <div class="tl-row">
+                  <span class="tl-yr">Quién</span>
+                  <span class="tl-txt">El <strong>alcalde de Palma, Antoni Noguera</strong>, criticó el mal comportamiento de algunos turistas alemanes (emborracharse, actos violentos) y los describió como "la basura que están enviando".</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">Propuesta</span>
+                  <span class="tl-txt">Pidió <strong>corresponsabilidad</strong> a Alemania, una reunión con la cónsul alemana y propuso <strong>campañas de civismo</strong> como solución.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">Problema</span>
+                  <span class="tl-txt">El mal comportamiento de una <strong>minoría</strong> crea estereotipos y una <strong>germanofobia preocupante</strong> que daña las relaciones entre alemanes y españoles.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 6. PREGUNTAS EXAMEN -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">🎤 Preguntas frecuentes del examen oral + respuestas modelo</div>
+              <div class="tl">
+                <div class="tl-row">
+                  <span class="tl-yr">P1</span>
+                  <span class="tl-txt"><strong>¿Ventajas económicas del turismo?</strong> — El turismo impulsa la economía regional y crea muchos puestos de trabajo en gastronomía, construcción y sector hotelero. Además, es una fuente de ingresos vital para regiones como Cataluña o Baleares, donde se concentra el 92% de los turistas.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">P2</span>
+                  <span class="tl-txt"><strong>¿Problemas del turismo de masas para los habitantes?</strong> — Causa mucho ruido y tráfico, falta de viviendas y alquileres más caros. Además, destruye la individualidad de los barrios y provoca manifestaciones como las de Barcelona: <em>"Estáis destrozando Barcelona"</em>.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">P3</span>
+                  <span class="tl-txt"><strong>¿Qué medidas toman las ciudades contra la masificación?</strong> — Barcelona prohibió nuevos hoteles en el centro, reguló pisos vacacionales y puso servicios especiales de transporte en La Barceloneta. Muchos ayuntamientos también controlan las licencias hoteleras.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">P4</span>
+                  <span class="tl-txt"><strong>¿Desventajas medioambientales?</strong> — El avión, el coche y los cruceros contaminan mucho. La construcción de grandes hoteles destruye el paisaje y la naturaleza. Las playas llenas y la basura dañan los ecosistemas.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">P5</span>
+                  <span class="tl-txt"><strong>¿Qué es el turismo sostenible?</strong> — Una forma de turismo que respeta el paisaje, el medioambiente y las culturas locales. Evita grandes hoteles en la costa, recicla la basura y usa energía renovable. Es crucial para el futuro a largo plazo de las regiones turísticas.</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-yr">P6</span>
+                  <span class="tl-txt"><strong>¿Bendición o maldición para España?</strong> — Las dos cosas. Por un lado, 75 millones de turistas y millones de puestos de trabajo. Por otro lado, la masificación sube los alquileres, daña el medioambiente y provoca protestas. La solución está en equilibrar el turismo con sostenibilidad y regulación.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 7. VOCABULARIO CLAVE -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">📚 Vocabulario clave (Español ↔ Deutsch)</div>
+              <div class="tl">
+                <div class="tl-row"><span class="tl-yr">turismo</span><span class="tl-txt"><strong>el turismo de masas</strong> — der Massentourismus · <strong>la masificación</strong> — die Überfüllung · <strong>el ecoturismo</strong> — der Ökotourismus · <strong>la ecotasa</strong> — die Ökosteuer</span></div>
+                <div class="tl-row"><span class="tl-yr">economía</span><span class="tl-txt"><strong>impulsar la economía</strong> — die Wirtschaft ankurbeln · <strong>fuente de ingresos</strong> — Einnahmequelle · <strong>crear empleo</strong> — Arbeitsplätze schaffen · <strong>la temporada alta</strong> — die Hochsaison</span></div>
+                <div class="tl-row"><span class="tl-yr">problemas</span><span class="tl-txt"><strong>la falta de viviendas</strong> — der Wohnraummangel · <strong>los alquileres suben</strong> — die Mieten steigen · <strong>el vandalismo</strong> — der Vandalismus · <strong>la pérdida de cultura</strong> — der Verlust von Kultur</span></div>
+                <div class="tl-row"><span class="tl-yr">personas</span><span class="tl-txt"><strong>el alcalde / la alcaldesa</strong> — der Bürgermeister/in · <strong>el habitante</strong> — der Einwohner · <strong>la germanofobia</strong> — die Deutschenfeindlichkeit · <strong>la corresponsabilidad</strong> — die Mitverantwortung</span></div>
+                <div class="tl-row"><span class="tl-yr">medioamb.</span><span class="tl-txt"><strong>la contaminación</strong> — die Verschmutzung · <strong>la destrucción del paisaje</strong> — die Zerstörung der Landschaft · <strong>el crucero</strong> — das Kreuzfahrtschiff · <strong>la costa virgen</strong> — die unberührte Küste</span></div>
+                <div class="tl-row"><span class="tl-yr">frases</span><span class="tl-txt"><strong>la bendición y la maldición</strong> — der Segen und der Fluch · <strong>oponerse a</strong> — sich widersetzen · <strong>quejarse de</strong> — sich beschweren über · <strong>llevar a</strong> — führen zu</span></div>
+              </div>
+            </div>
+
+            <!-- 8. NRW -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">🎓 Requisitos NRW — Prueba oral de Bachillerato</div>
+              <div class="tl">
+                <div class="tl-row"><span class="tl-yr">Duración</span><span class="tl-txt">15 minutos — <strong>Parte 1</strong>: monólogo/presentación (~5 min.) · <strong>Parte 2</strong>: diálogo con el examinador/a (~10 min.)</span></div>
+                <div class="tl-row"><span class="tl-yr">Formato</span><span class="tl-txt">Referat como PowerPoint + Handout con puntos clave <strong>con verbos</strong> (no listas de sustantivos puros). Voz libre, sin leer el texto.</span></div>
+                <div class="tl-row"><span class="tl-yr">Opinión</span><span class="tl-txt">Expresar una <em>opinión propia</em> sobre un aspecto del tema — p.ej. <em>¿Es la ecotasa la solución al turismo de masas?</em> o <em>¿Es el turismo una bendición o una maldición para España?</em></span></div>
+              </div>
+            </div>
+
+          </div><!-- /wb-body -->
+        </div><!-- /wissensblock -->
+
       </div>
     </div>
   </article>
