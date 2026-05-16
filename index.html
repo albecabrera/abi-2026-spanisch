@@ -720,6 +720,34 @@
     .card[data-n="3"] .tl-yr,
     .card[data-n="3"] .scard-val { color: var(--c3); }
 
+    /* ── FLASHCARDS ─────────────────────────────────────────────────────── */
+    .fc-toolbar { display:flex; gap:.5rem; margin-bottom:.75rem; flex-wrap:wrap; align-items:center; }
+    .fc-btn { font-size:.7rem; font-weight:700; padding:.3em .75em; border-radius:6px; border:1px solid var(--border); background:var(--surface2); color:var(--txt); cursor:pointer; }
+    .fc-btn:hover { filter:brightness(1.15); }
+    .fc-counter { font-size:.7rem; color:var(--txt3); margin-left:auto; }
+    .fc-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(148px,1fr)); gap:.6rem; }
+    .fc-card { height:90px; perspective:700px; cursor:pointer; }
+    .fc-inner { position:relative; width:100%; height:100%; transform-style:preserve-3d; transition:transform .35s; }
+    .fc-card.flipped .fc-inner { transform:rotateY(180deg); }
+    .fc-front, .fc-back { position:absolute; inset:0; backface-visibility:hidden; border-radius:8px; display:flex; align-items:center; justify-content:center; text-align:center; padding:.5rem; line-height:1.35; }
+    .fc-front { background:var(--surface2); border:1px solid rgba(67,160,71,.35); font-size:.78rem; font-weight:600; color:var(--txt); }
+    .fc-back { background:rgba(67,160,71,.13); border:1px solid rgba(67,160,71,.45); font-size:.72rem; color:var(--txt); transform:rotateY(180deg); }
+    @media (max-width:500px) { .fc-grid { grid-template-columns:1fr 1fr; } }
+
+    /* ── QUIZ ────────────────────────────────────────────────────────────── */
+    .qz-toolbar { display:flex; gap:.5rem; margin-bottom:.6rem; flex-wrap:wrap; align-items:center; }
+    .qz-score { font-size:.7rem; color:var(--txt3); margin-left:auto; }
+    .qz-list { display:flex; flex-direction:column; gap:.45rem; }
+    .qz-item { border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+    .qz-q { padding:.6rem .9rem; cursor:pointer; font-size:.81rem; font-weight:600; color:var(--txt); display:flex; justify-content:space-between; align-items:flex-start; gap:.5rem; user-select:none; }
+    .qz-q:hover { background:var(--surface2); }
+    .qz-num { font-size:.68rem; font-weight:800; color:var(--c3); flex-shrink:0; margin-top:.15em; }
+    .qz-icon { font-size:.65rem; color:var(--txt3); flex-shrink:0; margin-top:.1em; }
+    .qz-item.revealed .qz-icon { color:var(--c3); }
+    .qz-item.revealed .qz-q { background:rgba(67,160,71,.05); }
+    .qz-a { display:none; padding:.5rem .9rem; background:rgba(67,160,71,.07); border-top:1px solid rgba(67,160,71,.2); font-size:.79rem; color:var(--txt2); line-height:1.5; }
+    .qz-item.revealed .qz-a { display:block; }
+
     /* ── FOOTER ─────────────────────────────────────────────────────────── */
     footer {
       text-align: center;
@@ -1512,6 +1540,70 @@
               </div>
             </div>
 
+            <!-- 9. FLASHCARDS -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">🃏 Tarjetas de vocabulario — clic para voltear</div>
+              <div class="fc-toolbar">
+                <button class="fc-btn" data-dir="es" onclick="fcToggleDir(this,'fc3-grid')">→ DE → ES</button>
+                <button class="fc-btn" onclick="fcRevealAll('fc3-grid')">Ver todas</button>
+                <button class="fc-btn" onclick="fcResetAll('fc3-grid')">Resetear</button>
+                <span class="fc-counter" id="fc3-counter">0 / 24 volteadas</span>
+              </div>
+              <div class="fc-grid" id="fc3-grid">
+                <div class="fc-card" data-es="el turismo de masas" data-de="der Massentourismus" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">el turismo de masas</div><div class="fc-back">der Massentourismus</div></div></div>
+                <div class="fc-card" data-es="la masificación" data-de="die Überfüllung" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">la masificación</div><div class="fc-back">die Überfüllung</div></div></div>
+                <div class="fc-card" data-es="el turismo sostenible" data-de="der nachhaltige Tourismus" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">el turismo sostenible</div><div class="fc-back">der nachhaltige Tourismus</div></div></div>
+                <div class="fc-card" data-es="el ecoturismo" data-de="der Ökotourismus" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">el ecoturismo</div><div class="fc-back">der Ökotourismus</div></div></div>
+                <div class="fc-card" data-es="el medio ambiente" data-de="die Umwelt" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">el medio ambiente</div><div class="fc-back">die Umwelt</div></div></div>
+                <div class="fc-card" data-es="la contaminación" data-de="die Verschmutzung" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">la contaminación</div><div class="fc-back">die Verschmutzung</div></div></div>
+                <div class="fc-card" data-es="la destrucción del paisaje" data-de="die Zerstörung der Landschaft" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">la destrucción del paisaje</div><div class="fc-back">die Zerstörung der Landschaft</div></div></div>
+                <div class="fc-card" data-es="el intercambio intercultural" data-de="der interkulturelle Austausch" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">el intercambio intercultural</div><div class="fc-back">der interkulturelle Austausch</div></div></div>
+                <div class="fc-card" data-es="la fuente de ingresos" data-de="die Einnahmequelle" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">la fuente de ingresos</div><div class="fc-back">die Einnahmequelle</div></div></div>
+                <div class="fc-card" data-es="el puesto de trabajo" data-de="der Arbeitsplatz" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">el puesto de trabajo</div><div class="fc-back">der Arbeitsplatz</div></div></div>
+                <div class="fc-card" data-es="la falta de viviendas" data-de="der Wohnraummangel" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">la falta de viviendas</div><div class="fc-back">der Wohnraummangel</div></div></div>
+                <div class="fc-card" data-es="los alquileres suben" data-de="die Mieten steigen" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">los alquileres suben</div><div class="fc-back">die Mieten steigen</div></div></div>
+                <div class="fc-card" data-es="la sostenibilidad" data-de="die Nachhaltigkeit" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">la sostenibilidad</div><div class="fc-back">die Nachhaltigkeit</div></div></div>
+                <div class="fc-card" data-es="impulsar la economía" data-de="die Wirtschaft ankurbeln" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">impulsar la economía</div><div class="fc-back">die Wirtschaft ankurbeln</div></div></div>
+                <div class="fc-card" data-es="la temporada alta" data-de="die Hochsaison" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">la temporada alta</div><div class="fc-back">die Hochsaison</div></div></div>
+                <div class="fc-card" data-es="el comportamiento" data-de="das Verhalten" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">el comportamiento</div><div class="fc-back">das Verhalten</div></div></div>
+                <div class="fc-card" data-es="la pérdida de cultura" data-de="der Verlust von Kultur" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">la pérdida de cultura</div><div class="fc-back">der Verlust von Kultur</div></div></div>
+                <div class="fc-card" data-es="la bendición" data-de="der Segen" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">la bendición</div><div class="fc-back">der Segen</div></div></div>
+                <div class="fc-card" data-es="la maldición" data-de="der Fluch" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">la maldición</div><div class="fc-back">der Fluch</div></div></div>
+                <div class="fc-card" data-es="la manifestación" data-de="die Demonstration" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">la manifestación</div><div class="fc-back">die Demonstration</div></div></div>
+                <div class="fc-card" data-es="la costa virgen" data-de="die unberührte Küste" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">la costa virgen</div><div class="fc-back">die unberührte Küste</div></div></div>
+                <div class="fc-card" data-es="el crucero" data-de="das Kreuzfahrtschiff" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">el crucero</div><div class="fc-back">das Kreuzfahrtschiff</div></div></div>
+                <div class="fc-card" data-es="la germanofobia" data-de="die Deutschenfeindlichkeit" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">la germanofobia</div><div class="fc-back">die Deutschenfeindlichkeit</div></div></div>
+                <div class="fc-card" data-es="la corresponsabilidad" data-de="die Mitverantwortung" onclick="fcFlip(this,event)"><div class="fc-inner"><div class="fc-front">la corresponsabilidad</div><div class="fc-back">die Mitverantwortung</div></div></div>
+              </div>
+            </div>
+
+            <!-- 10. QUIZ -->
+            <div class="wb-sec">
+              <div class="wb-sec-title">🧠 Quiz de preparación — clic en la pregunta para ver respuesta</div>
+              <div class="qz-toolbar">
+                <button class="fc-btn" onclick="qzRevealAll('qz3-list')">Ver todas</button>
+                <button class="fc-btn" onclick="qzResetAll('qz3-list')">Resetear</button>
+                <span class="qz-score" id="qz3-score">0 / 15 respondidas</span>
+              </div>
+              <div class="qz-list" id="qz3-list">
+                <div class="qz-item" onclick="qzToggle(this)"><div class="qz-q"><span class="qz-num">01</span><span>¿Cuántos turistas recibió España en 2016?</span><span class="qz-icon">▼</span></div><div class="qz-a">75 millones de turistas</div></div>
+                <div class="qz-item" onclick="qzToggle(this)"><div class="qz-q"><span class="qz-num">02</span><span>¿En cuántas comunidades autónomas se concentra el 92% de los turistas?</span><span class="qz-icon">▼</span></div><div class="qz-a">En 6: Cataluña, Baleares, Canarias, Madrid, Comunidad Valenciana y Andalucía</div></div>
+                <div class="qz-item" onclick="qzToggle(this)"><div class="qz-q"><span class="qz-num">03</span><span>¿Qué medida tomó el Ayuntamiento de Barcelona contra el turismo masivo?</span><span class="qz-icon">▼</span></div><div class="qz-a">Prohibió la construcción de nuevos hoteles en el centro de la ciudad</div></div>
+                <div class="qz-item" onclick="qzToggle(this)"><div class="qz-q"><span class="qz-num">04</span><span>¿Cómo se llama el turismo que respeta el medio ambiente y las culturas locales?</span><span class="qz-icon">▼</span></div><div class="qz-a">El turismo sostenible / el ecoturismo</div></div>
+                <div class="qz-item" onclick="qzToggle(this)"><div class="qz-q"><span class="qz-num">05</span><span>Nombra 3 ventajas económicas del turismo</span><span class="qz-icon">▼</span></div><div class="qz-a">Impulsa la economía regional · crea puestos de trabajo (hoteles, gastronomía, construcción) · es una fuente de ingresos muy importante para algunas regiones</div></div>
+                <div class="qz-item" onclick="qzToggle(this)"><div class="qz-q"><span class="qz-num">06</span><span>Nombra 3 desventajas del turismo para los habitantes</span><span class="qz-icon">▼</span></div><div class="qz-a">Suben los alquileres · mucho ruido y tráfico · falta de viviendas para los residentes</div></div>
+                <div class="qz-item" onclick="qzToggle(this)"><div class="qz-q"><span class="qz-num">07</span><span>¿Qué significa "masificación" en alemán?</span><span class="qz-icon">▼</span></div><div class="qz-a">Die Überfüllung / die Übermassierung</div></div>
+                <div class="qz-item" onclick="qzToggle(this)"><div class="qz-q"><span class="qz-num">08</span><span>¿Cómo se dice "Wohnraummangel" en español?</span><span class="qz-icon">▼</span></div><div class="qz-a">La falta de viviendas</div></div>
+                <div class="qz-item" onclick="qzToggle(this)"><div class="qz-q"><span class="qz-num">09</span><span>¿Qué es la "temporada alta"? (Deutsch)</span><span class="qz-icon">▼</span></div><div class="qz-a">Die Hochsaison</div></div>
+                <div class="qz-item" onclick="qzToggle(this)"><div class="qz-q"><span class="qz-num">10</span><span>¿Qué significa "corresponsabilidad" en alemán?</span><span class="qz-icon">▼</span></div><div class="qz-a">Die Mitverantwortung</div></div>
+                <div class="qz-item" onclick="qzToggle(this)"><div class="qz-q"><span class="qz-num">11</span><span>Nombra 2 desventajas medioambientales del turismo</span><span class="qz-icon">▼</span></div><div class="qz-a">Contaminación por avión, coche y crucero · destrucción del paisaje por hoteles grandes en la costa</div></div>
+                <div class="qz-item" onclick="qzToggle(this)"><div class="qz-q"><span class="qz-num">12</span><span>¿Cómo se dice "ankurbeln" en español?</span><span class="qz-icon">▼</span></div><div class="qz-a">Impulsar (p.ej. "impulsar la economía")</div></div>
+                <div class="qz-item" onclick="qzToggle(this)"><div class="qz-q"><span class="qz-num">13</span><span>¿Qué es el ecoturismo?</span><span class="qz-icon">▼</span></div><div class="qz-a">Der Ökotourismus — eine nachhaltige Reiseform, die die Natur und lokale Kulturen respektiert und schützt</div></div>
+                <div class="qz-item" onclick="qzToggle(this)"><div class="qz-q"><span class="qz-num">14</span><span>Completa: "El turismo es una bendición y una ___"</span><span class="qz-icon">▼</span></div><div class="qz-a">maldición</div></div>
+                <div class="qz-item" onclick="qzToggle(this)"><div class="qz-q"><span class="qz-num">15</span><span>Traduce: "El turismo lleva a una pérdida de culturas locales"</span><span class="qz-icon">▼</span></div><div class="qz-a">Der Tourismus führt zu einem Verlust lokaler Kulturen</div></div>
+              </div>
+            </div>
+
           </div><!-- /wb-body -->
         </div><!-- /wissensblock -->
 
@@ -1862,6 +1954,72 @@
     btn.className   = 'btn start';
   }
 
+  /* ── FLASHCARDS ──────────────────────────────────────────────────────── */
+  function fcFlip(card, e) {
+    e && e.stopPropagation();
+    card.classList.toggle('flipped');
+    const grid = card.closest('.fc-grid');
+    if (grid) fcUpdateCounter(grid);
+  }
+
+  function fcUpdateCounter(grid) {
+    const total   = grid.querySelectorAll('.fc-card').length;
+    const flipped = grid.querySelectorAll('.fc-card.flipped').length;
+    const counter = document.getElementById(grid.id.replace('grid','counter'));
+    if (counter) counter.textContent = flipped + ' / ' + total + ' volteadas';
+  }
+
+  function fcToggleDir(btn, gridId) {
+    const grid  = document.getElementById(gridId);
+    const toDE  = btn.dataset.dir !== 'de';
+    btn.dataset.dir = toDE ? 'de' : 'es';
+    btn.textContent = toDE ? '← ES → DE' : '→ DE → ES';
+    grid.querySelectorAll('.fc-card').forEach(c => {
+      c.querySelector('.fc-front').textContent = toDE ? c.dataset.de : c.dataset.es;
+      c.querySelector('.fc-back').textContent  = toDE ? c.dataset.es : c.dataset.de;
+      c.classList.remove('flipped');
+    });
+    fcUpdateCounter(grid);
+  }
+
+  function fcRevealAll(gridId) {
+    const grid = document.getElementById(gridId);
+    grid.querySelectorAll('.fc-card').forEach(c => c.classList.add('flipped'));
+    fcUpdateCounter(grid);
+  }
+
+  function fcResetAll(gridId) {
+    const grid = document.getElementById(gridId);
+    grid.querySelectorAll('.fc-card').forEach(c => c.classList.remove('flipped'));
+    fcUpdateCounter(grid);
+  }
+
+  /* ── QUIZ ─────────────────────────────────────────────────────────────── */
+  function qzToggle(item) {
+    item.classList.toggle('revealed');
+    qzUpdateScore(item.closest('.qz-list'));
+  }
+
+  function qzUpdateScore(list) {
+    if (!list) return;
+    const total   = list.querySelectorAll('.qz-item').length;
+    const done    = list.querySelectorAll('.qz-item.revealed').length;
+    const scoreEl = document.getElementById(list.id.replace('list','score'));
+    if (scoreEl) scoreEl.textContent = done + ' / ' + total + ' respondidas';
+  }
+
+  function qzRevealAll(listId) {
+    const list = document.getElementById(listId);
+    list.querySelectorAll('.qz-item').forEach(i => i.classList.add('revealed'));
+    qzUpdateScore(list);
+  }
+
+  function qzResetAll(listId) {
+    const list = document.getElementById(listId);
+    list.querySelectorAll('.qz-item').forEach(i => i.classList.remove('revealed'));
+    qzUpdateScore(list);
+  }
+
   /* ── WISSENSBLOCK TOGGLE ─────────────────────────────────────────────── */
   function toggleWB(hd) {
     hd.classList.toggle('open');
@@ -1872,8 +2030,11 @@
   updateProgress();
   updateTimerDisplay();
 
-  // Open first card by default
-  document.querySelector('.card[data-n="1"]').classList.add('open');
+  // Open card 3 + its wissensblock by default (turismo)
+  const card3 = document.querySelector('.card[data-n="3"]');
+  card3.classList.add('open');
+  const wb3head = card3.querySelector('.wb-head');
+  if (wb3head) { wb3head.classList.add('open'); wb3head.nextElementSibling.classList.add('open'); }
 </script>
 
 </body>
